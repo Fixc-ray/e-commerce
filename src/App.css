@@ -1,8 +1,104 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
+body {
+  background-color: #b889b8;
+}
+
+.App {
+  text-align: center;
+  color: antiquewhite;
+}
+
+.navbar {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(19, 18, 18);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 50px;
+  height: 100%;
+  
+}
+
+.navbar-logo {
+  flex: 1;
+}
+
+.logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 1%;
+}
+
+.main-menu-container {
+  flex: 4;
+  margin-right: 30px;
+}
+
+.main-menu-item-active {
+  padding: 10px 30px;
+  font-weight: bold;
+}
+
+.main-menu-item {
+  padding: 4px;
+  border: solid 1px;
+  border-radius: 3px;
+  margin-right: 30px;
+}
+
+.navbar-buttons {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.profile-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-text-container {
+  margin: 0 20px;
+}
+
+.wishlist {
+  display: flex;
+}
+
+.image {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +131,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
