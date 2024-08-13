@@ -1,10 +1,13 @@
 import './App.css';
-
+import Search from './components/Search';
 
 function App() {
-  <div>
+  return(
+   <div>
     
-  </div>
+    </div>
+  )
+  
 }
 
 export default App;
