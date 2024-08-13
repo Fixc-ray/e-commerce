@@ -2,10 +2,9 @@ import React from 'react'
 import { useEffect , useState } from 'react';
 
 function Search() {
-  let productData=[];
-
+  const [productData, setProductData] = useState([])
   const [searchTerm , setSearchTerm] =useState('');
-  
+
 
   const filteredProducts = productData.filter(product=>
     product.name.toLowerCase().includes(searchTerm)|| product.category.toLowerCase().includes(searchTerm) ||
