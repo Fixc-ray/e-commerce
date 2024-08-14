@@ -4,13 +4,9 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #b889b8;
-}
-
 .App {
   text-align: center;
-  color: antiquewhite;
+  color: black;
 }
 
 .navbar {
@@ -99,8 +95,6 @@ body {
 }
 
 .products-card{
-
-  border: 1px solid purple;
   border-radius: 10px;
   width: 400px;
   text-align: center;

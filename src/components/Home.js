@@ -14,9 +14,11 @@ function Home() {
   const DisplayItems = products.map((product)=> <Details key={product.id} products={product}/>)
   return (
     <div>
-    <img src={products.image_url} alt={products.name} className="product-image"/>
     <Search/>
+    <div className="flex flex-wrap justify-end">
     {DisplayItems}
+    </div>
+    
   </div>
   )
   
