@@ -3,7 +3,7 @@ import React from "react";
 function Details({ products }) {
     
   return (
-    <div>
+    <div className="products-card">
       <img src={products.photoUrl}/>
       <h2>Name: {products.name}</h2>
       <h4> Product Description: {products.description}</h4>
