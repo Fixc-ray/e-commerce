@@ -11,12 +11,12 @@ function Home() {
       .then(data => setProducts(data))
       .catch(error => console.error(error))
   })
-  const DisplayItems = products.map((product)=> <Details key={product.id} products={product}/>)
+  const DisplayItems = products.map((product)=> <Details key={product.id} product={product}/>)
   return (
     <div>
-    <Search/>
-    <div className="flex flex-wrap justify-end">
-    {DisplayItems}
+    <Search items={products}/>
+    <div>
+      
     </div>
     
   </div>
