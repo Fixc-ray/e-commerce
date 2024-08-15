@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Details from "./Details";
+import Search from "./Search";
 
 function Home() {
-  const url = "http://localhost:3000/products";
+  const url = "https://e-commerce-silk-xi-95.vercel.app/products";
   const [products, setProducts]= useState([])
   useEffect(() => {
     fetch(url)
@@ -10,10 +11,14 @@ function Home() {
       .then(data => setProducts(data))
       .catch(error => console.error(error))
   })
-  const DisplayItems = products.map((product)=> <Details key={product.id} products={product}/>)
+  const DisplayItems = products.map((product)=> <Details key={product.id} product={product}/>)
   return (
     <div>
-    {DisplayItems}
+    <Search items={products}/>
+    <div>
+      
+    </div>
+    
   </div>
   )
   
