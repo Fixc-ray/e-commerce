@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Cart from './components/Cart';
+import Ultrafilter from './components/Ultrafilter';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/cart" element={<cart/>}/>
       </Routes>
       <Footer />
+      
     </div>
     </Router>
   )
