@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #8235D7 ;
+}
+
 .App {
   text-align: center;
   color: black;
@@ -11,7 +15,7 @@
 
 .navbar {
   position: fixed;
-  height: 50px;
+  height: 60px;
   width: 100%;
   background-color: rgb(19, 18, 18);
   top: 0;
@@ -21,33 +25,38 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 20px;
   height: 100%;
   
 }
 
-.navbar-logo {
-  flex: 1;
-}
-
-.logo {
+.navbar-logo .logo {
   width: 54px;
   height: 54px;
   border-radius: 50%;
 }
 
-.menu-list {
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  margin-top: 1%;
+.main-menu-container {
+  flex: 1;
+  /* margin-right: 30px; */
 }
 
-.main-menu-container {
-  flex: 4;
-  margin-right: 30px;
+.menu-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  /* margin-top: 1%; */
+}
+
+.main-menu-item {
+  color: white;
+  padding: 10px 20px;
+  border: solid 1px;
+  border-radius: 3px;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
 .main-menu-item-active {
@@ -55,11 +64,19 @@
   font-weight: bold;
 }
 
-.main-menu-item {
-  padding: 4px;
-  border: solid 1px;
-  border-radius: 3px;
-  margin-right: 30px;
+
+/* .menu-list-items.active {
+  color: black;
+} */
+
+.navbar.active {
+  background-color: white;
+  color: black;
+}
+
+.navbar-container.active {
+  background-color: white;
+  color: black;
 }
 
 .navbar-buttons {
@@ -68,10 +85,10 @@
 }
 
 .profile-container {
-  flex: 2;
+  /* flex: 2; */
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 }
 
 .profile-picture {
@@ -81,12 +98,57 @@
   object-fit: cover;
 }
 
-.profile-text-container {
-  margin: 0 20px;
+/* .profile-text-container {
+  margin: 10px;
+} */
+
+.toggle {
+  width: 60px;
+  height: 24px;
+  background-color: #333;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 20px;
+  padding: 0 5px;
 }
 
-.wishlist {
-  display: flex;
+.toggle-icon {
+  color: gold;
+  font-size: 14px;
+}
+
+.toggle-ball {
+  width: 22px;
+  height: 22px;
+  background-color: whitesmoke;
+  position: absolute;
+  right: 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.toggle-ball.active{
+  background-color: white;
+  transform: translateX(-36px);
+}
+
+.wishlist .wishlist-button{
+  background-color: transparent;
+  border: solid 1px white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.wishlist .wishlist-button:hover {
+  background-color: white;
+  color: black;
 }
 
 .image {
