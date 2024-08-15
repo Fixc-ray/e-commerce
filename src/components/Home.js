@@ -15,10 +15,6 @@ function Home() {
   return (
     <div>
     <Search items={products}/>
-    <div>
-      
-    </div>
-    
   </div>
   )
   

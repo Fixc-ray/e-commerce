@@ -14,7 +14,7 @@ function Search({ items }) {
   return (
     <div className="mt-16">
       <input
-        className="search-input"
+        className="search-input border border-grey-400 shadow-md"
         type="text"
         placeholder="DISCOVER PRODUCTS..."
         value={searchTerm}
