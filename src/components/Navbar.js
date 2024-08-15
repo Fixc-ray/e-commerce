@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isToggled, setIsToggled] = useState(false);
@@ -27,7 +28,7 @@ function Navbar() {
 
           <div className = "profile-container">
                 <img className= "profile-picture" src="system-regular-8-account.gif" alt="Profile" />
-                    <div  class = "profile-text-container">
+                    <div  className = "profile-text-container">
                         {/* <span class = "profile-text">Profile</span> */}
                         {/* <i class="fa-solid fa-down-long"></i> */}
                     </div>
@@ -41,6 +42,12 @@ function Navbar() {
 
           <div className="wishlist">
             <button className="wishlist-button">Wishlist</button>
+          </div>
+
+          <div className="cart">
+            <button className="add-to-cart-btn">
+              <Link to="/cart">CART</Link>
+            </button>
           </div>
 
       </div>
