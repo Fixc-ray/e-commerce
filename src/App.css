@@ -60,6 +60,7 @@ body {
 }
 
 .main-menu-item-active {
+  color: antiquewhite;
   padding: 10px 30px;
   font-weight: bold;
 }
@@ -158,7 +159,6 @@ body {
 
 .products-card{
   border-radius: 10px;
-  width: 400px;
   text-align: center;
   padding: 20px;
 }
