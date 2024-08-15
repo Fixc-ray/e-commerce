@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Navbar() {
+  const [isToggled, setIsToggled] = useState(false);
+
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+  };
+
   return (
     <div className="navbar">
 
@@ -20,15 +26,15 @@ function Navbar() {
           </div>
 
           <div className = "profile-container">
-                <img className= "profile-picture" src="anotherprofile.png" alt="" />
+                <img className= "profile-picture" src="system-regular-8-account.gif" alt="Profile" />
                     <div  class = "profile-text-container">
                         {/* <span class = "profile-text">Profile</span> */}
                         {/* <i class="fa-solid fa-down-long"></i> */}
                     </div>
-                <div class = "toggle">
-                    <i class="fa-solid fa-moon toggle-icon"></i>
-                    <i class="fa-solid fa-sun toggle-icon"></i>
-                    <div class= "toggle-ball-light"></div>
+                <div className = "toggle" onClick={handleToggle}>
+                <div className={`toggle-ball ${isToggled ? 'active' : ''}`}></div>
+                <i className={`fa-solid ${isToggled ? 'fa-sun' : 'fa-moon'} toggle-icon`}></i>
+                    {/* <div class= "toggle-ball-light"></div> */}
                 </div>
             </div>
 
