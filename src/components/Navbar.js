@@ -25,7 +25,7 @@ function Navbar() {
                         {/* <span class = "profile-text">Profile</span> */}
                         {/* <i class="fa-solid fa-down-long"></i> */}
                     </div>
-                <div class = "toggle">
+                <div class  = "toggle">
                     <i class="fa-solid fa-moon toggle-icon"></i>
                     <i class="fa-solid fa-sun toggle-icon"></i>
                     <div class= "toggle-ball-light"></div>
