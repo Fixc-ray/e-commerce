@@ -60,6 +60,7 @@ body {
 }
 
 .main-menu-item-active {
+  color: antiquewhite;
   padding: 10px 30px;
   font-weight: bold;
 }

@@ -15,13 +15,8 @@ function Home() {
   const DisplayItems = products.map((product)=> <Details key={product.id} product={product}/>)
   return (
     <div>
-    <Ultrafilter/>
-    <Search items={products}/>
-    <div>
-      
+      <Search items={products}/>
     </div>
-    
-  </div>
   )
   
 }
