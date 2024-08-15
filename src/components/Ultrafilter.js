@@ -16,7 +16,7 @@ function Ultrafilter({onFilter}) {
   };
   
   return (
-    <div className="filter-container">
+    <div className="filter-container color-red-500">
       <input
         type="text"
         placeholder="Search by title..."
