@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Details from "./Details";
 import Search from "./Search";
+import Ultrafilter from "./Ultrafilter";
 
 function Home() {
   const url = "https://e-commerce-silk-xi-95.vercel.app/products";
