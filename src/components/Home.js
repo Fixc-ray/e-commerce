@@ -13,13 +13,7 @@ function Home() {
   })
   const DisplayItems = products.map((product)=> <Details key={product.id} product={product}/>)
   return (
-    <div>
-    <Search items={products}/>
-    <div>
-      
-    </div>
-    
-  </div>
+    <div><p>lorem</p></div>
   )
   
 }
