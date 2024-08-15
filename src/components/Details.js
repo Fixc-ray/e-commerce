@@ -9,7 +9,7 @@ function Details({ product }) {
         alt={product.name}
       />
       <h2 className="text-2xl font-bold mt-3">Name: {product.name}</h2>
-      <hr/>
+      <hr className="m-2 border border-black"/>
       <h4 className="text-base ">Product Description: {product.description}</h4>
       <h4 className="">Price: {product.price}</h4>
       <h4>Category: {product.category}</h4>

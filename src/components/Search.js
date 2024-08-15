@@ -40,7 +40,7 @@ function Search({ items }) {
 
   return (
     <div className="mt-16 flex">
-      <div className="border border-white rounded w-60 mt-14 ml-4">
+      <div className="w-60 mt-14 ml-4">
         <h1 className="text-2xl">SELECT FURTHER</h1>
         <select
           value={category}
