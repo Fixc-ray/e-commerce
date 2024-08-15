@@ -3,7 +3,7 @@ import Details from "./Details";
 import Search from "./Search";
 
 function Home() {
-  const url = "http://localhost:3000/products";
+  const url = "https://e-commerce-silk-xi-95.vercel.app/products";
   const [products, setProducts]= useState([])
   useEffect(() => {
     fetch(url)
