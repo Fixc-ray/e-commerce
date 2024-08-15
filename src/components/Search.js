@@ -1,31 +1,32 @@
-import React from 'react'
-import { useEffect , useState } from 'react';
+import React, { useState } from "react";
+import Details from "./Details";
 
-function Search() {
-  let productData=[];
+function Search({ items }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
-  const [searchTerm , setSearchTerm] =useState('');
-  
-
-  const filteredProducts = productData.filter(product=>
-    product.name.toLowerCase().includes(searchTerm)|| product.category.toLowerCase().includes(searchTerm) ||
-    product.description.toLowerCase().includes(searchTerm)
+  const filtered = items.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-    return(
-      <div>
-      <input className="search-input" type="text" placeholder="DISCOVER PRODUCTS..." value={searchTerm}
-       />
-       <div>
-       {filteredProducts.map(product => (
-          <div key={product.id}>
-            <h2>{product.name}</h2>
-            <p>{product.category}</p>
-            <p>{product.description}</p>
-            </div>
-       ))}
-       </div>
-      </div>
-    );
-      }
 
-export default Search
+  return (
+    <div className="mt-16">
+      <input
+        className="search-input"
+        type="text"
+        placeholder="DISCOVER PRODUCTS..."
+        value={searchTerm}
+        onChange={handleInputChange}
+      />
+      <div className="flex flex-wrap justify-end">
+        {filtered.map((product) => (
+          <Details key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Search;
