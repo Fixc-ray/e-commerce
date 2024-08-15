@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useState } from "react";
+import Details from "./Details";
 
-function Search() {
+function Search({ items }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filtered = items.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div>Search</div>
-  )
+    <div className="mt-16">
+      <input
+        className="search-input"
+        type="text"
+        placeholder="DISCOVER PRODUCTS..."
+        value={searchTerm}
+        onChange={handleInputChange}
+      />
+      <div className="flex flex-wrap justify-end">
+        {filtered.map((product) => (
+          <Details key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default Search
+export default Search;
