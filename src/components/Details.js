@@ -37,6 +37,7 @@ function Details({ product , onAddToCart}) {
       }
     });
   };
+  
   return (
     <div className="products-card m-2 shadow-md border w-60">
       <img
@@ -44,21 +45,21 @@ function Details({ product , onAddToCart}) {
         src={product.photoUrl}
         alt={product.name}
       />
-      <h2 className="text-2xl font-semibold m-3">Name: {product.name}</h2>
-      <h4 className="text-base"> Product Description: {product.description}</h4>
-      <h4 className=""> Price: {product.price}</h4>
-      <h4> Category: {product.category}</h4>
-      <button 
-        className="add-to-cart-button bg-blue-500 text-white px-4 py-2 rounded"
-        onClick={() => onAddToCart(product)}
-      >
-        Add to Cart
-      </button>
-      <h2 className="text-2xl font-bold mt-3">Name: {product.name}</h2>
-      <hr/>
-      <h4 className="text-base ">Product Description: {product.description}</h4>
-      <h4 className="">Price: {product.price}</h4>
-      <h4>Category: {product.category}</h4>
+      <h2 className="text-2xl font-semibold m-3">{product.name}</h2>
+      <h4 className="description">Product Description: {product.description}</h4>
+      <h4 className="description">Price: {product.price}</h4>
+      <h4 className="description"> Category: {product.category}</h4>
+      <br/>
+
+      <div>
+        <button 
+          className="add-to-cart-button bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={() => onAddToCart(product)}
+          >
+          Add to Cart
+        </button>
+      </div>
+      
     </div>
   );
 }
