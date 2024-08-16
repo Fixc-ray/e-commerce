@@ -27,10 +27,17 @@ function Navbar() {
 
           <div className="main-menu-container">
             <ul className="menu-list">
-              <li className="main-menu-item-active">Home</li>
+
+              <li className="main-menu-item-active">
+                <Link to="/">Home</Link>
+              </li>
+              
               <li className="main-menu-item">Categories</li>
               <li className="main-menu-item">Services</li>
-              <li className="main-menu-item">More</li>
+              <li className="main-menu-item">
+                <Link to="/Footer">About Us</Link>
+              </li>
+            
             </ul>
           </div>
 
