@@ -1,6 +1,8 @@
 # The TasteNshop E-commerce Website
 ----
 
+- This is the live server link: https://e-commerce-va1l.vercel.app/
+
 <div align-items="center">
 <img src="public/TasteNshop.png" alt="Julia Logo" width="210" height="210"></img>
 </div>
