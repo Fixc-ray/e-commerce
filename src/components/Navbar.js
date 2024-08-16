@@ -40,13 +40,13 @@ function Navbar() {
             </div>
 
 
-          <div className="wishlist">
+          {/* <div className="wishlist">
             <button className="wishlist-button">Wishlist</button>
-          </div>
+          </div> */}
 
-          <div className="cart">
-            <button className="add-to-cart-btn">
-              <Link to="/cart">CART</Link>
+          <div className="wishlist">
+            <button className="wishlist-button">
+              <Link to="/cart">Wishlist</Link>
             </button>
           </div>
 
