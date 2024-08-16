@@ -111,14 +111,26 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
   cursor: pointer;
   margin-left: 20px;
-  padding: 0 5px;
+  margin-right: 20px ;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-navbar {
+  background-color: #222;
 }
 
 .toggle-icon {
   color: gold;
   font-size: 14px;
+  z-index: 1;
 }
 
 .toggle-ball {
@@ -129,7 +141,7 @@ body {
   right: 1px;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .toggle-ball.active{
@@ -156,6 +168,19 @@ body {
   height: 40vmin;
   pointer-events: none;
 }
+
+.text-2xl {
+  color: antiquewhite;
+  border: solid 1px #ffffff;
+  border-radius: 5px;
+  background-color: rgb(46, 43, 43);
+  padding: 5px;
+}
+
+.text-2xl:hover {
+  background-color: black;
+}
+
 
 .products-card{
   border-radius: 10px;

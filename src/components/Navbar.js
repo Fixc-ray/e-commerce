@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isToggled, setIsToggled] = useState(false);
+
+  useEffect(() => {
+    if (isToggled) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isToggled]);
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };
 
   return (
-    <div className="navbar">
+    <div className={`navbar ${isToggled ? 'dark-navbar' : ''}`}>
 
       <div className="navbar-container">
 
@@ -28,21 +36,16 @@ function Navbar() {
 
           <div className = "profile-container">
                 <img className= "profile-picture" src="system-regular-8-account.gif" alt="Profile" />
-                    <div  className = "profile-text-container">
+                     <div  className = "profile-text-container">
                         {/* <span class = "profile-text">Profile</span> */}
                         {/* <i class="fa-solid fa-down-long"></i> */}
-                    </div>
+                    </div> 
                 <div className = "toggle" onClick={handleToggle}>
                 <div className={`toggle-ball ${isToggled ? 'active' : ''}`}></div>
                 <i className={`fa-solid ${isToggled ? 'fa-sun' : 'fa-moon'} toggle-icon`}></i>
                     {/* <div class= "toggle-ball-light"></div> */}
                 </div>
             </div>
-
-
-          {/* <div className="wishlist">
-            <button className="wishlist-button">Wishlist</button>
-          </div> */}
 
           <div className="wishlist">
             <button className="wishlist-button">
@@ -56,4 +59,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
