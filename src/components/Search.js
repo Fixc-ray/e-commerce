@@ -40,13 +40,13 @@ function Search({ items }) {
 
   return (
     <div className="mt-16 flex">
-      <div className="border border-white rounded w-60 mt-14 ml-4">
-        <h1 className="text-2xl">SELECT FURTHER</h1>
+      <div className="w-60 mt-14 ml-4">
+        <h1 className="heading text-2xl">SELECT FURTHER</h1>
         <select
+          className="mt-2"
           value={category}
           onChange={handleFilterChange}
           onBlur={handleFilterChange}
-          className="mt-2"
         >
           <option value="">All Categories</option>
           <option value="Gadgets">Gadgets</option>
