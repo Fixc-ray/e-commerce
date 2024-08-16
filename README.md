@@ -1,16 +1,14 @@
 # The TasteNshop E-commerce Website
 ----
 
-<a name="logo"/>
-<div align="center">
+<div align-items="center">
 <img src="public/TasteNshop.png" alt="Julia Logo" width="210" height="210"></img>
-</a>
 </div>
 
 ![Contributors](https://img.shields.io/github/contributors/Fixc-ray/e-commerce)
 ![Forks](https://img.shields.io/github/forks/Fixc-ray/e-commerce)
 ![Stars](https://img.shields.io/github/stars/Fixc-ray/e-commerce)
-![Licence](https://img.shields.io/github/license/Fixc-ray/e-commerce)
+![License](https://img.shields.io/github/license/Fixc-ray/e-commerce)
 ![Issues](https://img.shields.io/github/issues/Fixc-ray/e-commerce)
 
 # Introduction
@@ -186,6 +184,10 @@ Icons are styled using Font Awesome.
 - Please fork the repository and create a pull request with your changes. 
 
 - Ensure that your code follows the project's coding standards and includes appropriate documentation.
+
+### Challenges 
+
+Some challenges we faced as a group are the a
 
 This application was coded and compiled by:
 [Ray](https://github.com/Fixc-ray),
