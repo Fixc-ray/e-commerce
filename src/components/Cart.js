@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Cart() {
   const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetch("https://e-commerce-silk-xi-95.vercel.app/products")
