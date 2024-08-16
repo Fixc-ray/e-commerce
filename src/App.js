@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Details from './components/Details';
-import Cart from './components/Cart';
+// import Details from './components/Details';
+// import Cart from './components/Cart';
 // import Ultrafilter from './components/Ultrafilter';
 
 function App() {
@@ -41,6 +41,7 @@ function App() {
         onRemoveItem={removeItem}
         />}/>
       </Routes>
+        <br/>
       <Footer />
       
     </div>

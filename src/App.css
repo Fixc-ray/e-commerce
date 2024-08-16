@@ -65,6 +65,10 @@ body {
   font-weight: bold;
 }
 
+.main-menu-item-active:hover {
+  color: #ffffff;
+  text-shadow: #ffffff 0 1px;
+}
 
 /* .menu-list-items.active {
   color: black;
