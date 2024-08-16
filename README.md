@@ -187,7 +187,10 @@ Icons are styled using Font Awesome.
 
 ### Challenges 
 
-Some challenges we faced as a group are the a
+Some challenges we faced as a group are the toggle Dark, where the user can change from light mode to dark mode and vice versa.
+- It is also worthy to note that the add to cart function does not work as we (the developers) are still figuring out a solution on this.
+
+We will try to make sure that this problem will be solved as soon as possible.
 
 This application was coded and compiled by:
 [Ray](https://github.com/Fixc-ray),
