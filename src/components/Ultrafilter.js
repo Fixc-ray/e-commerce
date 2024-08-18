@@ -31,7 +31,7 @@ function Ultrafilter({onFilter}) {
       >
         <option value="">All Categories</option>
         <option value="electronics">Electronics</option>
-        <option value="foodstuff">Footstuff</option>
+        <option value="foodstuff">Foodstuff</option>
         <option value="homedecor">Homedecor</option>
         <option value="home">Home</option>
       </select>

@@ -41,7 +41,7 @@ function Search({ items }) {
   return (
     <div className="mt-16 flex">
       <div className="w-60 mt-14 ml-4">
-        <h1 className="heading text-2xl">SELECT FURTHER</h1>
+        <h1 className="heading text-2xl">SELECT</h1>
         <select
           className="mt-2"
           value={category}

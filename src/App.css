@@ -5,12 +5,16 @@
 }
 
 body {
-  background-color: #8235D7 ;
+  background-color: rgb(221, 212, 212) ;
 }
 
 .App {
   text-align: center;
   color: black;
+}
+
+.heading {
+  padding: 2px;
 }
 
 .navbar {
@@ -46,6 +50,7 @@ body {
 .menu-list {
   display: flex;
   justify-content: center;
+  justify-content: space-around;
   list-style: none;
   /* margin-top: 1%; */
 }
@@ -53,8 +58,6 @@ body {
 .main-menu-item {
   color: white;
   padding: 10px 20px;
-  border: solid 1px;
-  border-radius: 3px;
   margin-right: 20px;
   cursor: pointer;
 }
@@ -90,7 +93,6 @@ body {
 }
 
 .profile-container {
-  /* flex: 2; */
   display: flex;
   align-items: center;
   /* justify-content: flex-end; */
@@ -101,11 +103,8 @@ body {
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+  margin: 40px;
 }
-
-/* .profile-text-container {
-  margin: 10px;
-} */
 
 .toggle {
   width: 60px;
@@ -173,6 +172,7 @@ body {
   pointer-events: none;
 }
 
+
 .text-2xl {
   color: antiquewhite;
   border: solid 1px #ffffff;
@@ -188,12 +188,19 @@ body {
 
 .products-card{
   border-radius: 10px;
+  background-color: #b3a8a8;
   text-align: center;
   padding: 20px;
 }
 
 .description {
   text-align: start;
+}
+
+.description-price {
+  text-align: center;
+  font-weight: 500;
+  text-shadow: #6b6363;
 }
 
 .product-image{
@@ -204,8 +211,9 @@ body {
 }
 
 
-.cart{
+.add-to-cart-button{
   color: azure;
+  background-color: black;
 }
 
 .add-to-cart-button:hover {
@@ -232,7 +240,7 @@ body {
 .footer h4 {
   font-size: 18px;
   margin-bottom: 15px;
-  color: #f8f9fa; /* Light color for headings */
+  color: #f8f9fa;
 }
 
 .footer p, .footer ul, .footer li {

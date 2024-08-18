@@ -46,14 +46,15 @@ function Details({ product , onAddToCart}) {
         alt={product.name}
       />
       <h2 className="text-2xl font-semibold m-3">{product.name}</h2>
-      <h4 className="description">Product Description: {product.description}</h4>
-      <h4 className="description">Price: {product.price}</h4>
+      <h4 className="description">{product.description}</h4>
       <h4 className="description"> Category: {product.category}</h4>
+      <br/>
+      <h4 className="description-price">{product.price}</h4>
       <br/>
 
       <div>
         <button 
-          className="add-to-cart-button bg-blue-500 text-white px-4 py-2 rounded"
+          className="add-to-cart-button  px-4 py-2 rounded"
           onClick={() => onAddToCart(product)}
           >
           Add to Cart
