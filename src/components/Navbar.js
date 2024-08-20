@@ -32,8 +32,12 @@ function Navbar() {
                 <Link to="/">Home</Link>
               </li>
               
-              <li className="main-menu-item">Categories</li>
-              <li className="main-menu-item">Services</li>
+              <li className="main-menu-item">
+              <Link to="/cart">Cart</Link>
+              </li>
+              <li className="main-menu-item">
+              <Link to="/wishlist">Wishlist</Link>
+              </li>
               <li className="main-menu-item">
                 <Link to="/Footer">About Us</Link>
               </li>
