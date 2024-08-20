@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import Details from "./Details";
+import Details from './Details';
 import Search from "./Search";
-// import Ultrafilter from "./Ultrafilter";
 
-function Home() {
+function Home({ onAddToCart, onRemoveItem }) {
   const url = "https://e-commerce-silk-xi-95.vercel.app/products";
   const [products, setProducts]= useState([])
   const [loading, setLoading] = useState(true);
@@ -24,13 +23,32 @@ function Home() {
   })
 }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) 
+    return 
+  <div>
+        {/* <div className="skeleton-card"></div>
+        <div className="skeleton-card"></div>
+        <div className="skeleton-card"></div> */}
+     <div>Loading...</div>;
+    </div>
+
+  if (error) 
+    return 
+    <div>{error}</div>;
 
   return (
+    <div>
     <div className="">
-      <Search items={products}/>
+      <Search 
+      items={products}
+      onAddToCart={onAddToCart}
+      />
     </div>
+    <Details 
+    onAddToCart={onAddToCart}
+    onRemoveItem={onRemoveItem}
+/>
+</div>
   )
   
 }
