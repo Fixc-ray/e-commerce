@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Details from './components/Details';
 import Cart from './components/Cart';
-// import Ultrafilter from './components/Ultrafilter';
+import Details from './components/Details';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
