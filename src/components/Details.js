@@ -7,7 +7,7 @@ function Details({ product, onAddToCart }) {
         className="w-full h-48 object-cover rounded"
         src={product.photoUrl}
         alt={product.name}
-      />
+        />
       <h2 className="text-2xl font-semibold m-3">{product.name}</h2>
       <h4 className="description">Product Description: {product.description}</h4>
       <h4 className="description">Price: {product.price}</h4>

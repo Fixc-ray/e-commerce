@@ -1,6 +1,8 @@
 # The TasteNshop E-commerce Website
 ----
 
+- This is the live server link: https://e-commerce-va1l.vercel.app/
+
 <div align-items="center">
 <img src="public/TasteNshop.png" alt="Julia Logo" width="210" height="210"></img>
 </div>
@@ -187,7 +189,17 @@ Icons are styled using Font Awesome.
 
 ### Challenges 
 
-Some challenges we faced as a group are the a
+Some challenges we faced as a group are the toggle Dark, where the user can change from light mode to dark mode and vice versa.
+
+We were able to solve this as we had not styled the navbar toggle area.
+
+- It is also worthy to note that the add to cart function does not work as we (the developers) are still figuring out a solution on this.
+
+- The profile at the Navbar was intended to have been linked with a component called Profile.js where the user can be linked to a UI to login their credentials while having the possibility to create an account.
+
+- There also are categories and Services which we had plans for. 
+
+We will try to make sure that this problem will be solved as soon as possible.
 
 This application was coded and compiled by:
 [Ray](https://github.com/Fixc-ray),
