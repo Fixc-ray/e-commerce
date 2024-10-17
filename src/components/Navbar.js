@@ -22,24 +22,26 @@ function Navbar() {
       <div className="navbar-container">
 
         <div className="navbar-logo">       
-            <img className = "logo" src="TasteNshop.png" alt="TasteNshop logo" />
+            <img className = "logo" src="TasteNshop.jpg" alt="TasteNshop logo" />
         </div>
 
           <div className="main-menu-container">
             <ul className="menu-list">
 
-              <li className="main-menu-item-active">
+              <li className="main-menu-item">
                 <Link to="/">Home</Link>
               </li>
-              
+              <li className="main-menu-item">
+                <Link to="/Footer">About</Link>
+              </li>
+              <li className="main-menu-item">
+                <Link to="/Footer">Services</Link>
+              </li>
               <li className="main-menu-item">
               <Link to="/cart">Cart</Link>
               </li>
               <li className="main-menu-item">
               <Link to="/wishlist">Wishlist</Link>
-              </li>
-              <li className="main-menu-item">
-                <Link to="/Footer">About Us</Link>
               </li>
             
             </ul>

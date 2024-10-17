@@ -9,13 +9,13 @@ function Cart() {
     fetch("https://e-commerce-silk-xi-95.vercel.app/products")
       .then(res => res.json())
       .then(data => setItems(data))
-      .catch(error => console.log("Error Fetching Cart Items"));
+      .catch(error => console.log("Error Fetching Cart Items", error));
   }, []);
 
   const calculateTotal = () => {
     let totalPrice = 0;
     for (const item of items) {
-      totalPrice += item.price * item.quantity; 
+      totalPrice += item.price * (item.quantity || 1); 
     }
     return totalPrice.toFixed(2);
   };
@@ -30,7 +30,7 @@ function Cart() {
       if (itemExists) {
         return prevItems.map(item =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: (item.quantity || 1) + 1 }
             : item
         );
       } else {
