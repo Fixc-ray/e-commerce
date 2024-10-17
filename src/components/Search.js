@@ -2,27 +2,34 @@ import React, { useState } from 'react';
 import Details from './Details';
 
 function Search({ items, onAddToCart }) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [category, setCategory] = useState('');
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
-  const handleInputChange = (e) => setSearchTerm(e.target.value);
-  const handleFilterChange = (e) => setCategory(e.target.value);
-  const handleMinPriceChange = (e) => setMinPrice(e.target.value);
-  const handleMaxPriceChange = (e) => setMaxPrice(e.target.value);
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleFilterChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const handleMinPriceChange = (e) => {
+    setMinPrice(e.target.value);
+  };
+
+  const handleMaxPriceChange = (e) => {
+    setMaxPrice(e.target.value);
+  };
 
   const filtered = items.filter((product) => {
     const matchesCategory = category ? product.category === category : true;
     const matchesSearchTerm = product.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
-    const matchesMinPrice = minPrice
-      ? product.price >= parseFloat(minPrice)
-      : true;
-    const matchesMaxPrice = maxPrice
-      ? product.price <= parseFloat(maxPrice)
-      : true;
+    const matchesMinPrice = minPrice ? product.price >= parseFloat(minPrice) : true;
+    const matchesMaxPrice = maxPrice ? product.price <= parseFloat(maxPrice) : true;
     return (
       matchesCategory &&
       matchesSearchTerm &&
@@ -66,19 +73,18 @@ function Search({ items, onAddToCart }) {
           </div>
         </div>
 
-        <div className="flex flex-col flex-grow">
-          <input
-            className="w-full p-2 border border-gray-400 rounded shadow-md mb-4"
-            type="text"
-            placeholder="Discover Products..."
-            value={searchTerm}
-            onChange={handleInputChange}
-          />
-          <div className="flex flex-wrap justify-center gap-4">
-            {filtered.map((product) => (
-              <Details key={product.id} product={product} onAddToCart={onAddToCart} />
-            ))}
-          </div>
+      <div className="mt-3">
+        <input
+          className="search-input border border-grey-400 shadow-md mr-60 pl-3 py-2"
+          type="text"
+          placeholder="DISCOVER PRODUCTS..."
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <div className="flex flex-wrap justify-center">
+          {filtered.map((product) => (
+            <Details key={product.id} product={product} onAddToCart={onAddToCart} />
+          ))}
         </div>
       </div>
     </div>
