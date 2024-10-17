@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Details from "./Details";
 
-function Search({ items }) {
+function Search({ items, onAddToCart }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
@@ -14,6 +14,7 @@ function Search({ items }) {
   const handleFilterChange = (e) => {
     setCategory(e.target.value);
   };
+
   const handleMinPriceChange = (e) => {
     setMinPrice(e.target.value);
   };
@@ -27,12 +28,8 @@ function Search({ items }) {
     const matchesSearchTerm = product.name
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
-    const matchesMinPrice = minPrice
-      ? product.price >= parseFloat(minPrice)
-      : true;
-    const matchesMaxPrice = maxPrice
-      ? product.price <= parseFloat(maxPrice)
-      : true;
+    const matchesMinPrice = minPrice ? product.price >= parseFloat(minPrice) : true;
+    const matchesMaxPrice = maxPrice ? product.price <= parseFloat(maxPrice) : true;
     return (
       matchesCategory && matchesSearchTerm && matchesMinPrice && matchesMaxPrice
     );
@@ -83,7 +80,7 @@ function Search({ items }) {
         />
         <div className="flex flex-wrap justify-center">
           {filtered.map((product) => (
-            <Details key={product.id} product={product} />
+            <Details key={product.id} product={product} onAddToCart={onAddToCart} />
           ))}
         </div>
       </div>
