@@ -26,9 +26,6 @@ function Home({ onAddToCart, onRemoveItem }) {
   if (loading) 
     return 
   <div>
-        {/* <div className="skeleton-card"></div>
-        <div className="skeleton-card"></div>
-        <div className="skeleton-card"></div> */}
      <div>Loading...</div>;
     </div>
 
@@ -49,8 +46,6 @@ function Home({ onAddToCart, onRemoveItem }) {
     onRemoveItem={onRemoveItem}
 />
 </div>
-  )
-  
-}
+  )}
 
 export default Home;
