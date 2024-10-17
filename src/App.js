@@ -1,14 +1,14 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Cart from './components/Cart';
 import Details from './components/Details';
+import Cart from './components/Cart';
+// import Ultrafilter from './components/Ultrafilter';
 
 function App() {
-    
     const [cartItems, setCartItems] = useState([]);
 
     const handleAddToCart = (product) => {
@@ -30,36 +30,28 @@ function App() {
       setCartItems(cartItems.filter(item => item.id !== id));
     };
 
-    const handleRemoveFromCart = (id) => {
-      setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+  const updateCartQuantity = (id, newQuantity) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      )
+    );
   };
 
   return (
-    <Router>
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home onAddToCart={handleAddToCart} 
-        />} />
-        <Route path="/cart" element={<Cart items={cartItems} 
+        <Route path="/" element={<Home onAddToCart={handleAddToCart}/>} />
+        <Route path="/cart" element={<cart 
+        items={cartItems} 
         onRemoveItem={removeItem}
-        />}
-        />
-        <Route path="/details"
-            element={
-              <Details
-                onAddToCart={handleAddToCart}
-                onRemoveItem={handleRemoveFromCart}
-              />
-        }/>
+        />}/>
       </Routes>
         <br/>
       <Footer />
-      
     </div>
-    </Router>
-  )
-  
+  );
 }
 
 export default App;

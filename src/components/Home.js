@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Details from './Details';
+// import Details from "./Details";
 import Search from "./Search";
+// import Ultrafilter from "./Ultrafilter";
 
-function Home({ onAddToCart, onRemoveItem }) {
+function Home() {
   const url = "https://e-commerce-silk-xi-95.vercel.app/products";
   const [products, setProducts]= useState([])
   const [loading, setLoading] = useState(true);
@@ -11,17 +12,15 @@ function Home({ onAddToCart, onRemoveItem }) {
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then(data => 
-        {
-          setProducts(data);
-          setLoading(false);
-        })
-      .catch(error => 
-        {
+      .then((data) => {
+        setProducts(data);
         setLoading(false);
-        setError("Failed to load products.");
-  })
-}, []);
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError('Failed to load products.');
+      });
+  }, []);
 
   if (loading) 
     return 
@@ -34,18 +33,11 @@ function Home({ onAddToCart, onRemoveItem }) {
     <div>{error}</div>;
 
   return (
-    <div>
     <div className="">
-      <Search 
-      items={products}
-      onAddToCart={onAddToCart}
-      />
+      <Search items={products}/>
     </div>
-    <Details 
-    onAddToCart={onAddToCart}
-    onRemoveItem={onRemoveItem}
-/>
-</div>
-  )}
+  )
+  
+}
 
 export default Home;
