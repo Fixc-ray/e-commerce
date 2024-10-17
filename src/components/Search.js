@@ -32,39 +32,6 @@ function Search({ items, onAddToCart }) {
   });
 
   return (
-<<<<<<< HEAD
-    <div className="mt-16 flex">
-      <div className="w-60 mt-14 ml-4">
-        <h1 className="heading text-2xl">SELECT</h1>
-        <select
-          className="mt-2"
-          value={category}
-          onChange={handleFilterChange}
-          onBlur={handleFilterChange}
-        >
-          <option value="">All Categories</option>
-          <option value="Gadgets">Gadgets</option>
-          <option value="Foodstuff">Foodstuff</option>
-          <option value="Home Decor">Home Decor</option>
-          <option value="Home Appliances">Home Appliance</option>
-          <option value="Outdoor Gear">Outdoor Gear</option>
-        </select>
-        <div className="mt-4">
-          <input
-            className="price-input border border-grey-400 shadow-md"
-            type="number"
-            placeholder="Min Price"
-            value={minPrice}
-            onChange={handleMinPriceChange}
-          />
-          <input
-            className="price-input border border-grey-400 shadow-md m-2"
-            type="number"
-            placeholder="Max Price"
-            value={maxPrice}
-            onChange={handleMaxPriceChange}
-          />
-=======
     <div className="flex">
       <div className="flex flex-col md:flex-row mt-10 mx-4">
         <div className="w-full md:w-1/4 mb-6 md:mb-0 md:mr-4">
@@ -97,7 +64,6 @@ function Search({ items, onAddToCart }) {
               onChange={handleMaxPriceChange}
             />
           </div>
->>>>>>> dba5d94e38d3b3be675371e49174b05b08e93310
         </div>
 
         <div className="flex flex-col flex-grow">
