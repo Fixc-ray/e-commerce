@@ -7,11 +7,17 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
     0
   );
 
+  const handleCheckout = () => {
+    alert(`Proceeding to checkout with total KSH ${totalPrice.toLocaleString()}`);
+  } 
+
   return (
     <div className="flex mt-10 flex-col min-h-screen">
       <Navbar />
       {cartItems.length === 0 ? (
-        <p className="text-center text-xl mt-10">Your cart is empty</p>
+        <p className="text-center text-xl mt-10">
+          Your cart is empty. <a href ="/products" className="text-blue-500 underline">Browse More products</a>
+        </p>
       ) : (
         <div className="flex-grow container mx-auto mt-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -35,7 +41,7 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
                   </button>
                   <p className="text-lg">{product.quantity}</p>
                   <button
-                    onClick={() => updateCartQuantity(product.id, product.quantity + 1)}
+                    onClick={() => updateCartQuantity(product.id, product.quantity - 1)}
                     className="bg-gray-300 px-2 py-1 rounded hover:bg-gray-400"
                   >
                     +
@@ -45,8 +51,8 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
                 <p>Total for this item: KSH {product.price * product.quantity}</p>
 
                 <button
+                  className="bg-red-500 text-white px-4 py-2 rounded shadow-md hover:bg-red-700 mt-6"
                   onClick={() => removeFromCart(product.id)}
-                  className="bg-red-500 text-white px-4 py-2 rounded shadow-md hover:bg-red-700 mt-4"
                 >
                   Remove
                 </button>
@@ -58,6 +64,7 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
             <h2 className="text-2xl font-semibold">Total: KSH {totalPrice}</h2>
             <button
               className="bg-green-500 text-white px-6 py-2 rounded shadow-md hover:bg-green-700 mt-4"
+              onClick={handleCheckout}
             >
               Checkout
             </button>
