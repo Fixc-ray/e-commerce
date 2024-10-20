@@ -12,7 +12,7 @@ class User(db.Model):
 
     @validates('email')
     def validate_email(self, key, email):
-        if "@" or "." not in email:
+        if "@" not in email or "." not in email:
             raise ValueError("Invalid email address")
         return email
     

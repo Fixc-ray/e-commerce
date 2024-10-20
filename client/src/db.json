@@ -1,0 +1,414 @@
+{
+    "products": [
+      
+      {
+        "id": 1,
+        "name": "Smartphone",
+        "description": "Latest model with high resolution display and long battery life.",
+        "price": 699.99,
+        "category": "Gadgets",
+        "photoUrl":"https://s.alicdn.com/@sc04/kf/H0e35cd60637b432a9da040648e6fc61cH.jpg_300x300.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Bluetooth Headphones",
+        "description": "Noise-cancelling wireless headphones with comfortable ear pads.",
+        "price": 149.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQetxA_tZH8ihoux7CIxnAzRnArfUwHquPBqQ&s"
+      },
+      {
+        "id": 3,
+        "name": "Digital Camera",
+        "description": "High-resolution digital camera with built-in Wi-Fi and Bluetooth.",
+        "price": 499.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Lt71clRSi3-PBAifmBIBFilU4st-SJlvWg&s"
+      },
+      {
+        "id": 4,
+        "name": "Bluetooth Speaker",
+        "description": "Portable Bluetooth speaker with long battery life and high-quality sound.",
+        "price": 89.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0jjEzGCV9t2I1VeV4mk84A2chxHnorf5Mrw&s"
+      },
+      {
+        "id": 5,
+        "name": "Smart Watch",
+        "description": "Fitness tracker and smart watch with heart rate monitor and notifications.",
+        "price": 249.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQskcz-LwvSfnLi2pbVWJJ1rwY_gjH7ASLsw&s"
+      },
+      {
+        "id": 6,
+        "name": "Portable Charger",
+        "description": "Compact portable charger with fast charging capability for smartphones and tablets.",
+        "price": 29.99,
+        "category": "Gadgets",
+        "photoUrl": "https://www.coquedetelephone.fr/media/catalog/product/cache/65c288d1ee8f55da12fcc8d03cfbf06f/8/7/8719295584257_vooraanzicht_fr_FR_1_6c86.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Action Camera",
+        "description": "Durable action camera with 4K resolution and waterproof case.",
+        "price": 299.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8d1yghWsRotQLcIYGeNI_mlFSmy4gMcisTg&s"
+      },
+      {
+        "id": 8,
+        "name": "Smart Home Hub",
+        "description": "Central hub for controlling various smart home devices.",
+        "price": 119.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3sheV82exA-mAnrG9lxzqSMF0UdASO0-57w&s"
+      },
+      {
+        "id": 9,
+        "name": "VR Headset",
+        "description": "Virtual reality headset with immersive 3D experience.",
+        "price": 399.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlbuwruMNCerGNYDcsABX-ctRYQsSV2wAQoA&s"
+      },
+      {
+        "id": 10,
+        "name": "Smart Light Bulbs",
+        "description": "Pack of smart LED light bulbs that can be controlled via smartphone.",
+        "price": 49.99,
+        "category": "Gadgets",
+        "photoUrl": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/402b1aeb-21a2-4d65-ab9d-58cd22e135b4.__CR0,0,200,225_PT0_SX200_V1___.jpg"
+      },
+      {
+        "id": 11,
+        "name": "Wireless Mouse",
+        "description": "Ergonomic wireless mouse with adjustable DPI settings.",
+        "price": 29.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWSB59ZgdHcc1bJ-Hd77iXs5JyhUrwI3okhA&s"
+      },
+      {
+        "id": 12,
+        "name": "Smart Lock",
+        "description": "Keyless smart lock with remote access and integration with smart home systems.",
+        "price": 199.99,
+        "category": "Gadgets",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5yST4Ss2abiKMNmg-qAbpYLqbyawoVzMwdQ&s"
+      },
+  
+      
+      {
+        "id": 13,
+        "name": "Coffee Maker",
+        "description": "Automatic drip coffee maker with programmable settings.",
+        "price": 89.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSSLEcCx0Y7PdCGHyc8pbdR-tCS3q4_nPutroyuCuSv7_uAvcKJ1l9q7azS2st5BUggwg&usqp=CAU"
+      },
+      {
+        "id": 14,
+        "name": "Electric Kettle",
+        "description": "Stainless steel electric kettle with fast boiling technology.",
+        "price": 49.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFQnGEv2U2B6gIv5MHjIVvQm4EdPov_FMmjA&s"
+      },
+      {
+        "id": 15,
+        "name": "Waffle Maker",
+        "description": "Non-stick waffle maker with adjustable temperature control.",
+        "price": 39.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIO5JzfLrextxVHP5COkm9M8dzvOIJ4w2MSo1bjdg0tXKCa8WvoKVgnxcSnfDVllZkIFs&usqp=CAU"
+      },
+      {
+        "id": 16,
+        "name": "Smart Thermostat",
+        "description": "Energy-efficient smart thermostat with voice control compatibility.",
+        "price": 129.99,
+        "category": "Home Appliances",
+        "photoUrl": "data:image/jpeg;base64,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"
+      },
+      {
+        "id": 17,
+        "name": "Air Purifier",
+        "description": "High-efficiency air purifier with HEPA filter for cleaner air.",
+        "price": 199.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQjXfytYd7VjBtKNPngtKxeZ6O4AjrmKL9Kw&s"
+      },
+      {
+        "id": 18,
+        "name": "Dishwasher",
+        "description": "High-efficiency dishwasher with multiple wash cycles and energy-saving features.",
+        "price": 649.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0Hc3IbIoCOd6RZ9zRB_Ktac2LuXOnNKhNYQ&s"
+      },
+      {
+        "id": 19,
+        "name": "Stand Mixer",
+        "description": "Powerful stand mixer with various attachments for baking and cooking.",
+        "price": 299.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrru3x96cuKYxZYAcoDwKCaQbKxzE9Peobmw&s"
+      },
+      {
+        "id": 20,
+        "name": "Dehumidifier",
+        "description": "Compact dehumidifier ideal for reducing moisture and improving air quality.",
+        "price": 129.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mGDsVursXOcSFv1VLnPJUmNBNqyd_uiFnA&s"
+      },
+      {
+        "id": 21,
+        "name": "Vacuum Cleaner",
+        "description": "Powerful vacuum cleaner with HEPA filter and multiple attachments.",
+        "price": 199.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDGn4JK4M_7IZ4_g2cxhA3tYWqCw1N0Gp6Bg&s"
+      },
+      {
+        "id": 22,
+        "name": "Blender",
+        "description": "High-performance blender with multiple speed settings and a large capacity jar.",
+        "price": 89.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYnkUVtYinx0GqfIMEBa2W5ZTLLxa4M9BnMw&s"
+      },
+      {
+        "id": 23,
+        "name": "Rice Cooker",
+        "description": "Automatic rice cooker with keep-warm function and multiple cooking modes.",
+        "price": 59.99,
+        "category": "Home Appliances",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq4wVBbK0_klrkvzOD5leX512_YHgiZyRHmQ&s"
+      },
+  
+      
+      {
+        "id": 24,
+        "name": "Ceramic Vase",
+        "description": "Elegant ceramic vase, perfect for home decoration or flower arrangements.",
+        "price": 29.99,
+        "category": "Home Decor",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeXg3mo_ky6iwlM04UcSLi7-m2R2UVP7WtAg&s"
+      },
+      {
+        "id": 25,
+        "name": "LED Desk Lamp",
+        "description": "Adjustable LED desk lamp with multiple brightness levels and a sleek design.",
+        "price": 34.99,
+        "category": "Home Decor",
+        "photoUrl": "https://www.shutterstock.com/image-photo/adjustable-white-mini-small-led-260nw-2262601763.jpg"
+      },
+      {
+        "id": 26,
+        "name": "Wall Art",
+        "description": "Framed wall art print featuring abstract designs.",
+        "price": 49.99,
+        "category": "Home Decor",
+        "photoUrl": "https://i.etsystatic.com/38262862/r/il/809928/5183492320/il_300x300.5183492320_4rzq.jpg"
+      },
+      {
+        "id": 27,
+        "name": "Throw Blanket",
+        "description": "Soft and cozy throw blanket in various colors.",
+        "price": 24.99,
+        "category": "Home Decor",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZugVEVZ0fDzzxwbL_skLu4WnDjfMrQDeV0Q&s"
+      },
+      {
+        "id": 28,
+        "name": "Decorative Pillows",
+        "description": "Set of decorative pillows with various patterns.",
+        "price": 39.99,
+        "category": "Home Decor",
+        "photoUrl": "https://i.etsystatic.com/25150253/r/il/4334d7/3553802064/il_340x270.3553802064_hhm5.jpg"
+      },
+      {
+        "id": 29,
+        "name": "Table Lamp",
+        "description": "Elegant table lamp with a classic design and adjustable brightness.",
+        "price": 54.99,
+        "category": "Home Decor",
+        "photoUrl": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/ce074fcd-7fec-4b74-81d5-6be95c4e60cb.__CR0,0,300,300_PT0_SX300_V1___.jpg"
+      },
+      {
+        "id": 30,
+        "name": "Rug",
+        "description": "Soft and durable area rug in various sizes and colors.",
+        "price": 149.99,
+        "category": "Home Decor",
+        "photoUrl": "https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/10/2913051/1.jpg?1026"
+      },
+      {
+        "id": 31,
+        "name": "Wall Clock",
+        "description": "Stylish wall clock with a modern design.",
+        "price": 29.99,
+        "category": "Home Decor",
+        "photoUrl": "https://i.pinimg.com/236x/b8/65/ae/b865aeedda03eccb9570f945b5ac8078.jpg"
+      },
+      {
+        "id": 32,
+        "name": "Indoor Plants",
+        "description": "Collection of indoor plants in decorative pots.",
+        "price": 19.99,
+        "category": "Home Decor",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuFUz5Wb79gopgdm89Kcb5DL8CyI-lWL0F1Q&s"
+      },
+      {
+        "id": 33,
+        "name": "Candles",
+        "description": "Set of scented candles with various fragrances.",
+        "price": 14.99,
+        "category": "Home Decor",
+        "photoUrl": "https://i.pinimg.com/236x/ec/f4/be/ecf4be75f87a5fe566361bcad3645880.jpg"
+      },
+  
+      
+      {
+        "id": 34,
+        "name": "Apple Pie",
+        "description": "Homemade apple pie with a buttery crust and cinnamon filling.",
+        "price": 12.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnZOvftErsiJoIYQ0e4RCKVHl7kdOR84fsaw&s"
+      },
+      {
+        "id": 35,
+        "name": "Organic Granola",
+        "description": "Crunchy granola with nuts and dried fruits, perfect for breakfast.",
+        "price": 5.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCPHIKXczzNJsh3RNOU0ZckSvxWWcTLD036A&s"
+      },
+      {
+        "id": 36,
+        "name": "Vegan Cookies",
+        "description": "Delicious vegan cookies made with natural ingredients.",
+        "price": 7.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://i0.wp.com/www.bakedgreens.com/wp-content/uploads/2020/12/Giant_Tahini_Chocolate_Chunk_Cookies_Vegan1.jpg?resize=265%2C336&ssl=1"
+      },
+      {
+        "id": 37,
+        "name": "Handmade Pasta",
+        "description": "Fresh, handmade pasta with a rich flavor, available in various shapes.",
+        "price": 6.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTojiaLF5CeKMGWlW6mYP5E0xlO6iPwoxAaaQ&s"
+      },
+      {
+        "id": 38,
+        "name": "Premium Olive Oil",
+        "description": "High-quality extra virgin olive oil, ideal for cooking and dressing.",
+        "price": 15.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxfs9AlZQ8A11y-Sf0w7UhwwLDgrVzRHH69g&s"
+      },
+      {
+        "id": 39,
+        "name": "Artisan Cheese",
+        "description": "A selection of gourmet cheeses from local artisans.",
+        "price": 19.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwoySGp7Ik89H1uziFRjyKR_MkpOBcqWv3Iw&s"
+      },
+      {
+        "id": 40,
+        "name": "Spicy Salsa",
+        "description": "Homemade salsa with a blend of fresh, spicy ingredients.",
+        "price": 4.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEKqiowTpIpQv327ix4tJCqAyhjaPTeW-tgQ&s"
+      },
+      {
+        "id": 41,
+        "name": "Craft Beer",
+        "description": "A variety pack of local craft beers with unique flavors.",
+        "price": 12.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://i.pinimg.com/236x/68/cf/11/68cf111ea0489f16ca68e9883eebd6e6.jpg"
+      },
+      {
+        "id": 42,
+        "name": "Gourmet Coffee",
+        "description": "Premium ground coffee with a rich, smooth flavor.",
+        "price": 9.99,
+        "category": "Foodstuff",
+        "photoUrl": "https://i.pinimg.com/236x/fd/e5/6b/fde56b02e2c8779ebf6eebb1bdea9cb3.jpg"
+      },
+      {
+        "id": 43,
+        "name": "Fresh Bakery Bread",
+        "description": "Loaf of freshly baked artisan bread with a crisp crust.",
+        "price": 4.49,
+        "category": "Foodstuff",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqsCau4PpOXe9DBx4_KUz_3o9DyTcsHl0ylA&s"
+      },
+  
+      
+      {
+        "id": 44,
+        "name": "Stainless Steel Water Bottle",
+        "description": "Durable stainless steel water bottle with leak-proof cap.",
+        "price": 19.99,
+        "category": "Outdoor Gear",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDX_j4OEn8H-w2KwxXZDKTtBYo8NS2IUEGjQ&s"
+      },
+      {
+        "id": 45,
+        "name": "Camping Tent",
+        "description": "Spacious camping tent with weather-resistant features.",
+        "price": 159.99,
+        "category": "Outdoor Gear",
+        "photoUrl": "https://www.imagella.com/cdn/shop/products/f2fed80c3ab05b31a760529244ffdbb2.jpg?v=1692390632&width=300"
+      },
+      {
+        "id": 46,
+        "name": "Sleeping Bag",
+        "description": "Lightweight and warm sleeping bag for outdoor adventures.",
+        "price": 79.99,
+        "category": "Outdoor Gear",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8OvwGDH8Z7X5183dbkgLjgpk2pOnawXABkg&s"
+      },
+      {
+        "id": 47,
+        "name": "Hiking Boots",
+        "description": "Durable hiking boots with waterproof and traction features.",
+        "price": 129.99,
+        "category": "Outdoor Gear",
+        "photoUrl": "https://i.pinimg.com/474x/02/43/7d/02437d92a0b317b616e808a51d0dae7a.jpg"
+      },
+      {
+        "id": 48,
+        "name": "Outdoor Grill",
+        "description": "Portable outdoor grill with easy assembly and multiple cooking surfaces.",
+        "price": 199.99,
+        "category": "Outdoor Gear",
+        "photoUrl": "https://images.thdstatic.com/productImages/bab0c6a8-e5e6-4fa2-b531-79856886cf82/svn/outsunny-portable-charcoal-grills-846-022-64_300.jpg"
+      },
+      {
+        "id": 49,
+        "name": "Fishing Rod",
+        "description": "High-quality fishing rod suitable for various types of fishing.",
+        "price": 89.99,
+        "category": "Outdoor Gear",
+        "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWtaLyQOuyjrQ6Lu1TZnCks5r0alEtYB62zQ&s"
+      },
+      {
+        "id": 50,
+        "name": "Binoculars",
+        "description": "Compact and powerful binoculars for outdoor observation.",
+        "price": 59.99,
+        "category": "Outdoor Gear",
+        "photoUrl": "https://png.pngtree.com/png-vector/20231020/ourmid/pngtree-binoculars-illustration-in-minimal-style-png-image_10236800.png"
+      }
+    ]
+  }
+  
