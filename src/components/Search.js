@@ -72,7 +72,7 @@ function Search({ items, onAddToCart }) {
 
       <div className="mt-3">
         <input
-          className="search-input border border-grey-400 shadow-md mr-60 pl-3 py-2"
+          className="search-input border border-grey-400 shadow-md"
           type="text"
           placeholder="DISCOVER PRODUCTS..."
           value={searchTerm}
