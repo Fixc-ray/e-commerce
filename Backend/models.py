@@ -14,3 +14,4 @@ class User(db.Model):
         if '@' not in value:
             raise ValueError("invalid email address format")
         return value
+

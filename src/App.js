@@ -8,6 +8,7 @@ import Cart from "./components/Cart";
 import Details from "./components/Details";
 import Login from "./components/Login ";
 import Register from "./components/Register";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -45,6 +46,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/" element={<Home onAddToCart={onAddToCart} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

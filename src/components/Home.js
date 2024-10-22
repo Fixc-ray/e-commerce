@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Details from './Details';
 import Search from "./Search";
+import Navbar from "./Navbar";
 
 function Home({ onAddToCart, onRemoveItem }) {
   const url = "https://e-commerce-silk-xi-95.vercel.app/products";
@@ -35,7 +36,7 @@ function Home({ onAddToCart, onRemoveItem }) {
 
   return (
     <div>
-    <div className="">
+    <div className="mt-20px">
       <Search 
       items={products}
       onAddToCart={onAddToCart}

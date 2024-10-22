@@ -36,7 +36,7 @@ function Search({ items, onAddToCart }) {
   });
 
   return (
-    <div className="mt-16 flex">
+    <div className="mt-20 flex">
       <div className="w-60 mt-14 ml-4">
         <h1 className="heading text-2xl">SELECT</h1>
         <select

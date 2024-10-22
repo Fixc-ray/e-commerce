@@ -1,55 +1,68 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./register.css";
 
 function Register() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
+
+  const goToLogin = () => {
+    navigate("/login");
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://127.0.0.1:5000/register', {
+      const res = await axios.post("http://127.0.0.1:5000/register", {
         username,
         password,
         email,
       });
-      alert(res.data.message); 
-      navigate('/login'); 
+      alert(res.data.message);
+      navigate("/login");
     } catch (error) {
-      alert(error.response?.data?.message || 'Registration failed');
+      alert(error.response?.data?.message || "Registration failed");
     }
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <h2>Register</h2>
-      <input
-        type="email"
-        placeholder="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
+    <div className="signup-container">
+      <div className="side">
+        <h1>Hello, There!</h1>
+        <h3>Don't have an account?</h3>
+        <p>Register with us to unlock all features of the site!</p>
+        <button onClick={goToLogin}>Sign In</button>
+      </div>
 
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Register</button>
-    </form>
+      <form onSubmit={handleRegister}>
+        <h2>Register</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Register</button>
+      </form>
+    </div>
   );
 }
 
