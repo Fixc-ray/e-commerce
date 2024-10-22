@@ -16,7 +16,7 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
       <Navbar />
       {cartItems.length === 0 ? (
         <p className="text-center text-xl mt-10">
-          Your cart is empty. <a href ="/products" className="text-blue-500 underline">Browse More products</a>
+          Your cart is empty. <a href ="/home" className="text-blue-500 underline">Browse More products</a>
         </p>
       ) : (
         <div className="flex-grow container mx-auto mt-10">
