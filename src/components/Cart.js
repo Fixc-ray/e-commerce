@@ -18,7 +18,7 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
             {cartItems.map((product) => (
               <div key={product.id} className="cart-item border p-4 rounded shadow-md">
                 <img
-                  src={product.imageUrl}
+                  src={product.photoUrl}
                   alt={product.name}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />

@@ -23,6 +23,8 @@ function App() {
         return [...prevItems, { ...product, quantity: 1 }];
       }
     });
+
+    window.alert(`${product.name} has been added to cart`)
   };
 
   const removeItem = (id) => {
