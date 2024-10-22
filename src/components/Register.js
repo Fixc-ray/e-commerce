@@ -32,8 +32,8 @@ function Register() {
     <div className="signup-container">
       <div className="side">
         <h1>Hello, There!</h1>
-        <h3>Don't have an account?</h3>
-        <p>Register with us to unlock all features of the site!</p>
+        <h3>Already Have An Account?</h3>
+        <p>Sign in instead of creating another account</p>
         <button onClick={goToLogin}>Sign In</button>
       </div>
 
