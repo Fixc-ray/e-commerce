@@ -6,6 +6,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Details from './components/Details';
+import Login from "./components/Login";
+import Register from "./components/Register";
+import { Navigate } from "react-router-dom";
+import MyProducts from "./components/Myproducts";
+import Profile from "./components/Profile";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -37,16 +42,27 @@ function App() {
       )
     );
   };
+  const ProtectedRoute = ({ children }) => {
+    const token = localStorage.getItem('token');
+    return token ? children : <Navigate to="/login" />;
+  };
 
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
           <Route
-            path="/"
+            path="/home"
             element={<Home onAddToCart={onAddToCart} />}
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/my-products" element={<ProtectedRoute>
+            <MyProducts />
+            <Profile />
+            </ProtectedRoute>} />
           <Route
             path="/cart"
             element={
@@ -57,10 +73,12 @@ function App() {
               />
             }
           />
+          <Route path='/profile' element={<Profile />} />
           <Route
             path="/details"
             element={<Details onAddToCart={onAddToCart} />}
           />
+          <Route path="/my-products" element={<ProtectedRoute><MyProducts /></ProtectedRoute>} />
         </Routes>
         <Footer />
       </div>

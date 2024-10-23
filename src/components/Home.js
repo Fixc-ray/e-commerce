@@ -9,20 +9,35 @@ function Home({ onAddToCart, onRemoveItem }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => {
-        return res.json();
-      })
-      .then(data => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError("Failed to load products.");
-      });
-  }, []);
+    const fetchProducts = async () => {
+      const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+      
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`, // Add the Authorization header
+            'Content-Type': 'application/json' // Optional: specify content type
+          }
+        });
 
+        if (!response.ok) {
+          throw new Error('Failed to fetch products.'); // Handle non-2xx responses
+        }
+
+        const data = await response.json(); // Parse the response to JSON
+        setProducts(data); // Set the products state
+      } catch (error) {
+        setError(error.message || "Failed to load products."); // Handle errors
+      } finally {
+        setLoading(false); // Set loading to false regardless of success or error
+      }
+    };
+
+    fetchProducts(); // Call the fetch function
+  }, [url]); // You can include url as a dependency if it might change
+
+  // Render loading state
   if (loading) {
     return (
       <div>
@@ -31,6 +46,7 @@ function Home({ onAddToCart, onRemoveItem }) {
     );
   }
 
+  // Render error state
   if (error) {
     return (
       <div>{error}</div>
