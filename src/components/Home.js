@@ -49,7 +49,6 @@ function Home({ onAddToCart, onRemoveItem }) {
         {products.map(product => (
           <Details 
             key={product.id} // Assuming each product has a unique 'id'
-            product={product}
             onAddToCart={onAddToCart}
             onRemoveItem={onRemoveItem}
           />

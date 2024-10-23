@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
+from flask import jsonify
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from models import db, Product, User, Cart
@@ -49,9 +50,9 @@ def create_product():
         user_id=user.user_id,  
         name=data['name'],
         price=data['price'],
-        description=data.get('description'),
+        description=data('description'),
         category=data['category'],
-        photo_url=data.get('photo_url')
+        photo_url=data('photo_url', None)
     )
     db.session.add(new_product)
     db.session.commit()

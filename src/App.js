@@ -8,7 +8,7 @@ import Cart from './components/Cart';
 import Details from './components/Details';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([])
 
   const onAddToCart = (product) => {
     setCartItems(prevItems => {
@@ -43,24 +43,15 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route
-            path="/"
-            element={<Home onAddToCart={onAddToCart} />}
-          />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cartItems={cartItems}
-                removeFromCart={removeItem}
-                updateCartQuantity={updateCartQuantity}
-              />
-            }
-          />
-          <Route
-            path="/details"
-            element={<Details onAddToCart={onAddToCart} />}
-          />
+          <Route path="/" element={<Home onAddToCart={onAddToCart} />} />
+          <Route path="/cart" element={
+            <Cart
+              cartItems={cartItems}
+              removeFromCart={removeItem}
+              updateCartQuantity={updateCartQuantity}
+            />
+          } />
+          <Route path="/details" element={<Details onAddToCart={onAddToCart} />} />
         </Routes>
         <Footer />
       </div>

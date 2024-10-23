@@ -34,7 +34,7 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(200))
     category = db.Column(db.String(50))
-    photo_url = db.Column(db.String(200))
+    photo_url = db.Column(db.String(300))
 
     def to_dict(self):
         return {
