@@ -50,7 +50,7 @@ class Product(db.Model):
         }
         
         
-class Cart (db.Model):
+class Cart(db.Model):
     __tablename__ = 'carts'
     cart_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
@@ -59,8 +59,3 @@ class Cart (db.Model):
     
     user = db.relationship('User', backref='carts')
     product = db.relationship('Product', backref='carts')
-    
-        
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
