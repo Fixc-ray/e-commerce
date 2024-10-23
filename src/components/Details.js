@@ -9,7 +9,7 @@ function Details({ product, onAddToCart }) {
     <div className="products-card m-2 shadow-md border w-60">
       <img
         className="w-full h-48 object-cover rounded"
-        src={product.photoUrl}
+        src={product.photo_url}
         alt={product.name}
       />
       <h2 className="text-2xl font-semibold m-3">{product.name}</h2>
