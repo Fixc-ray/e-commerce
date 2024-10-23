@@ -11,7 +11,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://127.0.0.1:8080/login', { username, password });
+      const res = await axios.post('http://127.0.0.1:5000/login', { username, password });
       localStorage.setItem('token', res.data.access_token);
       alert('Login successful!');
       navigate('/home');
@@ -24,6 +24,8 @@ function Login() {
     <div className="login-container">
       <form onSubmit={handleLogin}>
         <h2>Sign In</h2>
+
+        {/* Username Input */}
         <input
           type="text"
           placeholder="Username"
@@ -31,6 +33,8 @@ function Login() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
+
+        {/* Password Input */}
         <input
           type="password"
           placeholder="Password"
@@ -38,18 +42,23 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
+        {/* Login Button */}
         <button type="submit">Login</button>
       </form>
+
       <div className="side">
         <h1>Hello, There</h1>
         <h3>Don't have an account?</h3>
         <p>Register with us to use all features of the website</p>
+        
+        {/* Redirect to Register Page */}
         <button className="border" onClick={() => navigate("/register")}>
           Sign Up
         </button>
       </div>
     </div>
   );
-};
+}
 
 export default Login;

@@ -1,8 +1,29 @@
-import { Navigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ children }) => {
+const Protected = () => {
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
   const token = localStorage.getItem('token');
-  return token ? children : <Navigate to="/login" />;
+
+  useEffect(() => {
+    const fetchProtectedData = async () => {
+      try {
+        const res = await axios.get('http://127.0.0.1:5000/protected', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setMessage(res.data.message);
+      } catch (error) {
+        alert('Unauthorized! Please log in.');
+        navigate('/login');
+      }
+    };
+
+    fetchProtectedData();
+  }, [navigate, token]);
+
+  return <div>{message}</div>;
 };
 
-export default ProtectedRoute;
+export default Protected;

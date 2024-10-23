@@ -39,12 +39,12 @@ const Profile = () => {
 
   const fetchUserCart = async () => {
     try {
-        const cartResponse = await axios.get('http://127.0.0.1:8080/api/cart/me', {
+        const cartResponse = await axios.get('http://127.0.0.1:8080/api/cart', {
             headers: { Authorization: `Bearer ${token}` }
         });
         setCartItems(cartResponse.data);
     } catch (error) {
-        console.error("Error fetching cart items:", error); // Log error details
+        console.error("Error fetching cart items:", error);
         setError('Failed to load cart items.');
     }
 };

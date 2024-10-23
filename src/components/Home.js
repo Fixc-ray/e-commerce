@@ -3,7 +3,7 @@ import Details from './Details';
 import Search from "./Search";
 
 function Home({ onAddToCart, onRemoveItem }) {
-  const url = "http://127.0.0.1:8080/api/products";
+  const url = "http://127.0.0.1:5000/api/products";
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
