@@ -1,11 +1,14 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Details from './components/Details';
+import Register from './components/Register';
+import Login from './components/Login';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -31,7 +34,7 @@ function App() {
   };
 
   const updateCartQuantity = (id, newQuantity) => {
-    if (newQuantity < 1) return; // Prevent quantity from dropping below 1
+    if (newQuantity < 1) return;
     setCartItems(prevItems =>
       prevItems.map(item =>
         item.id === id ? { ...item, quantity: newQuantity } : item
@@ -39,6 +42,11 @@ function App() {
     );
   };
 
+  const ProtectedRoute = ({ children }) => {
+    const token = localStorage.getItem('token');
+    return token ? children : <Navigate to="/login" />;
+  };
+  
   return (
     <Router>
       <div className="App">
@@ -46,6 +54,10 @@ function App() {
         <Routes>
           <Route
             path="/"
+            element={<Navigate to= "/login" />}
+          />
+           <Route
+            path="/home"
             element={<Home onAddToCart={onAddToCart} />}
           />
           <Route
@@ -62,6 +74,8 @@ function App() {
             path="/details"
             element={<Details onAddToCart={onAddToCart} />}
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
         <Footer />
       </div>
