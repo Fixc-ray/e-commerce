@@ -6,17 +6,22 @@ import './Login.css'
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await axios.post('http://127.0.0.1:5000/login', { username, password });
       localStorage.setItem('token', res.data.access_token);
       alert('Login successful!');
       navigate('/home');
     } catch (error) {
+      console.error('Login error:', error);
       alert(error.response?.data?.message || 'Login failed');
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -43,7 +48,9 @@ function Login() {
         />
 
         {/* Login Button */}
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading}>
+        {loading ? 'Logging in...' : 'Login'}
+        </button>
       </form>
 
       <div className="side">
