@@ -8,7 +8,7 @@ import Cart from './components/Cart';
 import Details from './components/Details';
 import Register from './components/Register';
 import Login from './components/Login';
-import ProtectedRoute from './ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);

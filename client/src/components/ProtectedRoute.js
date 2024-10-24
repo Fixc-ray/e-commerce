@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Protected = () => {
+const ProtectedRoute = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
@@ -26,4 +26,4 @@ const Protected = () => {
   return <div>{message}</div>;
 };
 
-export default Protected;
+export default ProtectedRoute;

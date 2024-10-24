@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Register.css";
-import "./Login.css";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const goToLogin = () => {
@@ -16,6 +17,9 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
+
     try {
       const res = await axios.post("http://127.0.0.1:5000/register", {
         username,
@@ -26,6 +30,9 @@ function Register() {
       navigate("/login");
     } catch (error) {
       alert(error.response?.data?.message || "Registration failed");
+      console.error("Registration Error", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -40,6 +47,7 @@ function Register() {
 
       <form onSubmit={handleRegister}>
         <h2>Register</h2>
+        {error && <p className="error-message">{error}</p>}
         <input
           type="email"
           placeholder="Email"
@@ -61,7 +69,9 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Register</button>
+        <button type="submit" disabled={loading}>
+        {loading ? "Registering..." : "Register"}
+        </button>
       </form>
     </div>
   );

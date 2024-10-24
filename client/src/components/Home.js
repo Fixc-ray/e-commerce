@@ -10,34 +10,39 @@ function Home({ onAddToCart }) {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+        setError("User is not authenticated. Please log in!");
+        return;
+      }
       
       try {
         const response = await fetch(url, {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${token}`, // Add the Authorization header
-            'Content-Type': 'application/json' // Optional: specify content type
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
           }
         });
 
         if (!response.ok) {
-          throw new Error('Failed to fetch products.'); // Handle non-2xx responses
+          throw new Error('Failed to fetch products.');
         }
 
-        const data = await response.json(); // Parse the response to JSON
-        setProducts(data); // Set the products state
+        const data = await response.json();
+        setProducts(data);
       } catch (error) {
-        setError(error.message || "Failed to load products."); // Handle errors
+        setError(error.message || "Failed to load products.");
       } finally {
-        setLoading(false); // Set loading to false regardless of success or error
+        setLoading(false);
       }
     };
 
-    fetchProducts(); // Call the fetch function
-  }, [url]); // You can include url as a dependency if it might change
+    fetchProducts();
+  }, [url]);
 
-  // Render loading state
+  
   if (loading) {
     return (
       <div>
