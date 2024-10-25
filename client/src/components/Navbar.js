@@ -29,7 +29,7 @@ function Navbar() {
             <ul className="menu-list">
 
               <li className="main-menu-item">
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
               </li>
               <li className="main-menu-item">
                 <Link to="/Footer">About</Link>
