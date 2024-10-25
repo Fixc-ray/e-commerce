@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Details({ product, onAddToCart }) {
   if (!product) {
@@ -6,19 +6,19 @@ function Details({ product, onAddToCart }) {
   }
 
   return (
-    <div className="products-card m-2 shadow-md border w-60">
+    <div className="border p-4 shadow-md rounded-lg">
       <img
         className="w-full h-48 object-cover rounded"
         src={product.photo_url}
         alt={product.name}
       />
-      <h2 className="text-2xl font-semibold m-3">{product.name}</h2>
-      <h4 className="description">{product.description}</h4>
-      <h4 className="description">Category: {product.category}</h4>
-      <h4 className="description-price">{product.price}</h4>
+      <h2 className="text-xl font-semibold mt-2">{product.name}</h2>
+      <p className="text-gray-600">{product.description}</p>
+      <p className="text-gray-500">Category: {product.category}</p>
+      <p className="text-lg font-bold mt-2">${product.price}</p>
 
-      <button 
-        className="add-to-cart-button px-4 py-2 rounded"
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600"
         onClick={() => onAddToCart(product)}
       >
         Add to Cart

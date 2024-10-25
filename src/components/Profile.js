@@ -16,7 +16,6 @@ const Profile = () => {
     } else {
       setUser(JSON.parse(userData));
 
-      // Fetch the user's products
       axios.get('/api/user/products', {
         headers: { Authorization: `Bearer ${token}` },
       })

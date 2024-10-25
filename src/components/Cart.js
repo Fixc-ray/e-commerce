@@ -8,7 +8,7 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
   );
 
   return (
-    <div className="flex mt-10 flex-col min-h-screen">
+    <div className="flex mt-20 flex-col min-h-screen">
       <Navbar />
       {cartItems.length === 0 ? (
         <p className="text-center text-xl mt-10">Your cart is empty</p>
@@ -18,7 +18,7 @@ function Cart({ cartItems = [], removeFromCart, updateCartQuantity }) {
             {cartItems.map((product) => (
               <div key={product.id} className="cart-item border p-4 rounded shadow-md">
                 <img
-                  src={product.imageUrl}
+                  src={product.photo_url}
                   alt={product.name}
                   className="w-full h-48 object-cover mb-4 rounded"
                 />

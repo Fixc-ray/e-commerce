@@ -42,7 +42,7 @@ function Navbar({onLogout}) {
                 <Link to="/home">Home</Link>
               </li>
               <li className="main-menu-item">
-                <Link to="/Footer">About</Link>
+                <Link to="/Products">Products</Link>
               </li>
               <li className="main-menu-item">
                 <Link to="/Footer">Services</Link>
