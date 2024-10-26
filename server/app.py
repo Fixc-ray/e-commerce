@@ -20,20 +20,49 @@ jwt = JWTManager(app)
 db.init_app(app)
 CORS(app)
 
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    user = User.query.filter_by(username=username).first()
+
+    if not user or not check_password_hash(user.password, password):
+        return jsonify({'message': 'Invalid credentials'}), 401
+
+    access_token = create_access_token(identity=user.id)
+    return jsonify({
+        'access_token': access_token,
+        'user': {
+            'username': user.username,
+            'email': user.email
+        }
+        }), 200
+
+
+@app.route('/', methods=['GET'])
+@jwt_required()
+def protected():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    return jsonify({'message': f'Hello {user.username}, this is a protected route!'}), 200
+
 
 @app.route("/")
 def index():
-    return "<h1>Welcome to TasteNShop !</h1>"
+    return "<h1>Welcome to TasteNShop!</h1>"
 
 
 @app.route('/api/users', methods=['GET'])
 @jwt_required()
 def get_users():
     users = User.query.all()
-    return jsonify([user.to_dict() for user in users])
+    return jsonify([user.to_dict() for user in users]), 200
 
 
 @app.route('/api/users', methods=['POST'])
+@jwt_required()
 def create_user():
     data = request.get_json()
     
@@ -44,8 +73,10 @@ def create_user():
         return jsonify({'error': 'Email already exists'}), 400
     
     new_user = User(username=data['username'], password=data['password'], email=data['email'])
+
     db.session.add(new_user)
     db.session.commit()
+
     return jsonify({
         'message': 'User created successfully',
         'user': new_user.to_dict()
@@ -69,8 +100,8 @@ def add_to_cart():
     else:
         cart_item = Cart(user_id=user.user_id, product_id=product.product_id, quantity=data['quantity'])
         db.session.add(cart_item)
+        db.session.commit()
     
-    db.session.commit()
     return jsonify({'message': 'Item added to cart'}), 201
 
 
@@ -82,22 +113,18 @@ def view_cart(user_id):
 
 
 @app.route('/api/products', methods=['GET'])
-# @jwt_required()
+@jwt_required()
 def get_products():
     products = Product.query.all() 
     return jsonify([product.to_dict() for product in products])
 
 
-@app.route('/api/products/<int:product_id>', methods=['GET'])
-@jwt_required()
-def get_product(product_id):
-    product = Product.query.get_or_404(product_id)
-    return jsonify(product.to_dict())
 
 
 @app.route('/api/products', methods=['POST'])
 @jwt_required()
 def create_product():
+    user_id = get_jwt_identity()
     data = request.get_json()
     
     if not data or 'name' not in data or 'category' not in data or 'price' not in data or 'user_id' not in data:
@@ -111,14 +138,28 @@ def create_product():
         user_id=user.user_id,  
         name=data['name'],
         price=data['price'],
-        description=data.get('description'),
         category=data['category'],
+        description=data.get('description'),
         photo_url=data.get('photo_url')
     )
     db.session.add(new_product)
     db.session.commit()
+
     return jsonify(new_product.to_dict()), 201
 
+@app.route('/api/user/products', methods=['GET'])
+@jwt_required()
+def get_user_products():
+    user_id = get_jwt_identity()
+    products = Product.query.filter_by(user_id=user_id).all()
+    return jsonify([product.to_dict() for product in products]), 200
+
+
+@app.route('/api/products/<int:product_id>', methods=['GET'])
+@jwt_required()
+def get_product(product_id):
+    product = Product.query.get_or_404(product_id)
+    return jsonify(product.to_dict())
 
 @app.route('/api/products/<int:product_id>', methods=['PUT'])
 @jwt_required()
@@ -167,20 +208,6 @@ def register():
 
     return jsonify({'message': 'User registered successfully'}), 201
 
-
-@app.route('/login', methods=['POST'])
-def login():
-    data = request.get_json()
-    username = data.get('username')
-    password = data.get('password')
-
-    user = User.query.filter_by(username=username).first()
-
-    if not user or not check_password_hash(user.password, password):
-        return jsonify({'message': 'Invalid credentials'}), 401
-
-    access_token = create_access_token(identity=user.id)
-    return jsonify({'access_token': access_token}), 200
 
 
 
