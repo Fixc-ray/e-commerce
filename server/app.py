@@ -135,7 +135,7 @@ def create_product():
         return jsonify({'error': 'Invalid user ID'}), 400
     
     new_product = Product(
-        user_id=user.user_id,  
+        user_id=user_id,  
         name=data['name'],
         price=data['price'],
         category=data['category'],
