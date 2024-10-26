@@ -91,14 +91,15 @@ def add_to_cart():
     if not data or 'user_id' not in data or 'product_id' not in data or 'quantity' not in data:
         return jsonify({'error': 'Missing required fields'}), 400
     
-    user = User.query.get_or_404(data['user_id'])
+    user_id = get_jwt_identity()
+    # user = User.query.get_or_404(data['user_id'])
     product = Product.query.get_or_404(data['product_id'])
     
-    cart_item = Cart.query.filter_by(user_id=user.user_id, product_id=product.product_id).first()
+    cart_item = Cart.query.filter_by(user_id=user_id, product_id=product.product_id).first()
     if cart_item:
         cart_item.quantity += data['quantity']
     else:
-        cart_item = Cart(user_id=user.user_id, product_id=product.product_id, quantity=data['quantity'])
+        cart_item = Cart(user_id=user_id, product_id=product.product_id, quantity=data['quantity'])
         db.session.add(cart_item)
         db.session.commit()
     
@@ -119,8 +120,6 @@ def get_products():
     return jsonify([product.to_dict() for product in products])
 
 
-
-
 @app.route('/api/products', methods=['POST'])
 @jwt_required()
 def create_product():
@@ -135,7 +134,7 @@ def create_product():
         return jsonify({'error': 'Invalid user ID'}), 400
     
     new_product = Product(
-        user_id=user_id,  
+        user_id=user_id,
         name=data['name'],
         price=data['price'],
         category=data['category'],
