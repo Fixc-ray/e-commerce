@@ -109,7 +109,7 @@ body {
 }
 
 .main-menu-item a:hover {
-  color: #ffc107;
+  color: rgb(250, 250, 250);
   text-shadow: #ffffff 0 1px;
 }
 
@@ -122,16 +122,6 @@ body {
   animation: pulse 1.5s infinite ease-in-out;
   will-change: background-color;
 }
-
-/* .navbar.active {
-  background-color: white;
-  color: black;
-}
-
-.navbar-container.active {
-  background-color: white;
-  color: black;
-} */
 
 .navbar-buttons {
   cursor: pointer;
