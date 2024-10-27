@@ -276,12 +276,12 @@ body {
 .footer {
   background-color: #343a40; 
   color: #ffffff; 
-  font-size: 12px;
-  padding: 20px 10px;
-  bottom: 0;
+  font-size: 14px;
+  padding: 30px 15px;
   width: 100%;
   z-index: 999;
   text-align: center;
+  position: relative;
 }
 
 .container {
@@ -291,29 +291,29 @@ body {
 }
 
 .footer .row {
-  font-size: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
+  gap: 15px;
 }
 
 .footer .col-md-6 {
   flex: 1;
-  margin: 10px;
+  margin: 10px 0;
   min-width: 250px;
-  /* width: 45%;
-  margin-bottom: 20px; */
 }
 
 .footer h4 {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 15px;
   color: #f8f9fa;
+  font-weight: bold;
 }
 
 .footer p, .footer ul, .footer li {
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #d1d1d1;
 }
 
 .footer ul {
@@ -322,27 +322,48 @@ body {
 }
 
 .footer li {
-  margin-bottom: 10px;
-  font-size: 14px;
+  margin-bottom: 12px;
+  font-size: 15px;
 }
 
 .footer ul li i {
-  margin-right: 10px;
+  color: #ffc107;
+  margin-right: 8px;
 }
 
 .footer a {
-  color: #f8f9fa;
+  color: #ffc107;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #ffc107; 
+  color: #f8f9fa; 
   text-decoration: underline;
 }
 
 .footer .fas {
   margin-right: 10px;
+}
+
+/* .footer .social-icons a {
+  color: #ffc107;
+  font-size: 18px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+  color: #f8f9fa;
+} */
+
+.footer-bottom {
+  border-top: 1px solid #495057;
+  padding-top: 15px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #adb5bd;
+  text-align: center;
 }
 
 .copyright {
@@ -403,10 +424,43 @@ body {
         padding: 5px 10px;
       }
 
+      .footer {
+        font-size: 12px;
+        padding: 20px 8px;
+        margin-top: 150px;
+      }
+
+      .footer h4 {
+        font-size: 16px;
+      }
+    
+      .footer p, .footer li {
+        font-size: 12px;
+      }
+
       .footer .row {
         flex-direction: column;
         text-align: center;
+        gap: 10px
      }
+
+     .footer .col-md-4 {
+      max-width: 100%;
+      text-align: center;
+      margin: 10px 0;
+    }
+  
+    .footer-bottom {
+      font-size: 12px;
+      margin-top: 15px;
+    }
+
+    .copyright {
+      font-size: 12px;
+      margin-top: 10px;
+      margin-left: 10px;
+      text-align: center;
+    }
     }
     
 
