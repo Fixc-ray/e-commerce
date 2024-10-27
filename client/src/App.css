@@ -449,6 +449,11 @@ body {
       text-align: center;
       margin: 10px 0;
     }
+
+    .footer a:hover {
+      color: #f8f9fa; 
+      text-decoration: underline;
+    }
   
     .footer-bottom {
       font-size: 12px;
@@ -461,6 +466,7 @@ body {
       margin-left: 10px;
       text-align: center;
     }
+
     }
     
 
