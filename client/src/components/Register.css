@@ -134,7 +134,7 @@ button:disabled {
 
 @media (max-width: 768px) {
   .signup-container {
-    margin-top: 250px;
+    margin-top: 400px;
     border-radius: 10px;
   }
 
@@ -160,7 +160,7 @@ button:disabled {
 
 @media (max-width: 320px) {
   .signup-container {
-    margin-top: 800px;
+    margin-top: 820px;
     flex-direction: column;
     width: 100%;
   }
