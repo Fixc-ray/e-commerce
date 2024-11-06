@@ -20,29 +20,29 @@ jwt = JWTManager(app)
 db.init_app(app)
 CORS(app)
 
-# @app.route("/register", methods=["POST"])
-# def register():
-#     data = request.get_json()
-#     username = data.get("username")
-#     password = data.get("password")
-#     email = data.get("email")
 
-#     if User.query.filter_by(username=username).first():
-#         return jsonify({"message": "Username already taken"}), 400
 
-#     if User.query.filter_by(email=email).first():
-#         return jsonify({'message': 'Email already exists'}), 400
+@app.route("/register", methods=["POST"])
+def register():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    email = data.get('email')
 
-#     hashed_password = generate_password_hash(password)
-#     new_user = User(username=data['username'], password=hashed_password, email=data['email'])
+    if User.query.filter_by(username=username).first():
+        return jsonify({'message': 'Username already taken'}), 400
 
-#     db.session.add(new_user)
-#     db.session.commit()
+    if User.query.filter_by(email=email).first():
+        return jsonify({'message': 'Email already exists'}), 400
 
-    # return jsonify({
-    #     'message': 'User created successfully',
-    #     'user': new_user.to_dict()
-    # }), 201
+    hashed_password = generate_password_hash(password)
+    new_user = User(username=username, password=hashed_password, email=email)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({'message': 'User registered successfully'}), 201
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -77,9 +77,9 @@ def protected():
     return jsonify({'message': f'Hello {user.username}, this is a protected route!'}), 200
 
 
-@app.route("/")
-def index():
-    return "<h1>Welcome to TasteNShop!</h1>"
+# @app.route("/")
+# def index():
+#     return "<h1>Welcome to TasteNShop!</h1>"
 
 
 @app.route('/api/users', methods=['GET'])
@@ -214,26 +214,6 @@ def delete_product(product_id):
     return jsonify({'message': 'Product deleted'}), 200
 
 
-@app.route("/register", methods=["POST"])
-def register():
-    data = request.get_json()
-    username = data.get('username')
-    password = data.get('password')
-    email = data.get('email')
-
-    if User.query.filter_by(username=username).first():
-        return jsonify({'message': 'Username already taken'}), 400
-
-    if User.query.filter_by(email=email).first():
-        return jsonify({'message': 'Email already exists'}), 400
-
-    hashed_password = generate_password_hash(password)
-    new_user = User(username=username, password=hashed_password, email=email)
-
-    db.session.add(new_user)
-    db.session.commit()
-
-    return jsonify({'message': 'User registered successfully'}), 201
 
 
 

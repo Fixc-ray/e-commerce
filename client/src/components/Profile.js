@@ -5,6 +5,8 @@ import axios from 'axios';
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,15 +17,18 @@ const Profile = () => {
       navigate('/');
     } else {
       setUser(JSON.parse(userData));
+      setLoading(true);
 
       axios.get('/api/user/products', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(response => {
         setProducts(response.data);
+        setLoading(false);
       })
       .catch(error => {
-        console.error('Error fetching products:', error);
+        setError('Error fetching products. Please try again.');
+        setLoading(false);
       });
     }
   }, [navigate]);
@@ -57,6 +62,14 @@ const Profile = () => {
 
   if (!user) {
     return <p className="text-center mt-10 text-lg">Loading...</p>;
+  }
+
+  if (loading) {
+    return <p className="text-center mt-10 text-lg">Loading products...</p>;
+  }
+
+  if (error) {
+    return <p className="text-center mt-10 text-lg text-red-600">{error}</p>;
   }
 
   return (
