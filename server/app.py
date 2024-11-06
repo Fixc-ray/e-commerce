@@ -20,18 +20,46 @@ jwt = JWTManager(app)
 db.init_app(app)
 CORS(app)
 
+# @app.route("/register", methods=["POST"])
+# def register():
+#     data = request.get_json()
+#     username = data.get("username")
+#     password = data.get("password")
+#     email = data.get("email")
+
+#     if User.query.filter_by(username=username).first():
+#         return jsonify({"message": "Username already taken"}), 400
+
+#     if User.query.filter_by(email=email).first():
+#         return jsonify({'message': 'Email already exists'}), 400
+
+#     hashed_password = generate_password_hash(password)
+#     new_user = User(username=data['username'], password=hashed_password, email=data['email'])
+
+#     db.session.add(new_user)
+#     db.session.commit()
+
+    # return jsonify({
+    #     'message': 'User created successfully',
+    #     'user': new_user.to_dict()
+    # }), 201
+
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data.get('username')
+    # print("Username...............................................................................................................................................")
+    # print(username)
     password = data.get('password')
+    # print("Password...............................................................................................................................................")
+    # print(password)
 
     user = User.query.filter_by(username=username).first()
 
     if not user or not check_password_hash(user.password, password):
         return jsonify({'message': 'Invalid credentials'}), 401
 
-    access_token = create_access_token(identity=user.id)
+    access_token = create_access_token(identity=user.user_id)
     return jsonify({
         'access_token': access_token,
         'user': {
@@ -211,4 +239,4 @@ def register():
 
 
 if __name__ == '__main__':
-    app.run(port=5500, debug=True)
+    app.run(port=5000, debug=True)

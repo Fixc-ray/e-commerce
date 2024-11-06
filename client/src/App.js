@@ -8,6 +8,7 @@ import Cart from './components/Cart';
 import Details from './components/Details';
 import Register from './components/Register';
 import Login from './components/Login';
+import profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -69,6 +70,13 @@ function App() {
                 <Details onAddToCart={onAddToCart} />
               </ProtectedRoute>
           } />
+
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <profile />
+            </ProtectedRoute>
+          }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
