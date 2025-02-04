@@ -4,9 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from models import db, Product, User, Cart
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import (
-    JWTManager, create_access_token, jwt_required, get_jwt_identity
-)
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -19,6 +17,7 @@ migrate = Migrate(app, db)
 jwt = JWTManager(app)
 db.init_app(app)
 CORS(app)
+# CORS(app, resources={r"/register": {"origins": "http://localhost:3000"}})
 
 
 

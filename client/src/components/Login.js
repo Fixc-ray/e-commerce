@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import './Login.css'
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./Login.css"
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -13,13 +13,13 @@ function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('http://127.0.0.1:5000/login', { username, password });
-      localStorage.setItem('token', res.data.access_token);
-      alert('Login successful!');
-      navigate('/home');
+      const res = await axios.post("http://127.0.0.1:5000/login", { username, password });
+      localStorage.setItem("token", res.data.access_token);
+      alert("Login successful!");
+      navigate("/home");
     } catch (error) {
-      console.error('Login error:', error);
-      alert(error.response?.data?.message || 'Login failed');
+      console.error("Login error:", error);
+      alert(error.response?.data?.message || "Login failed");
     } finally {
       setLoading(false)
     }
@@ -36,6 +36,7 @@ function Login() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          aria-label="Username"
           required
         />
 
@@ -44,12 +45,13 @@ function Login() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          aria-label="Password"
           required
         />
 
         {/* Login Button */}
         <button type="submit" disabled={loading}>
-        {loading ? 'Logging in...' : 'Login'}
+        {loading ? "Logging in..." : "Login"}
         </button>
       </form>
 
