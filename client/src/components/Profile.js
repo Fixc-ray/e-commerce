@@ -15,22 +15,33 @@ const Profile = () => {
 
     if (!userData || !token) {
       navigate('/');
-    } else {
+      return;
+    }
+    try {
       setUser(JSON.parse(userData));
-      setLoading(true);
+    } catch (error) {
+      console.error('Error parsing user data:', error);
+      navigate('/');
+      return;
+    }
 
-      axios.get('/api/user/products', {
+      axios
+      .get('/api/user/products', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(response => {
+        console.log('Fetched products:', response.data); // Debugging
         setProducts(response.data);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch(error => {
+        console.error('Error fetching products:', error.response?.data || error);
         setError('Error fetching products. Please try again.');
+        // setLoading(false);
+      })
+      .finally(() => {
         setLoading(false);
       });
-    }
   }, [navigate]);
 
   const handleLogout = () => {

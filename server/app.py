@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-
 from models import db, Product, User, Cart
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
@@ -13,12 +12,11 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['JWT_SECRET_KEY'] = "712727ce8e9c49787f842d6245c2d438562a67a9a22a8ebeb114a63f98dd885454e8690c38d9c89f775499ef666d0b130d503a031ebd941393a3b86741d33c01007b0c6e1e3dfdbf239ebc4f601454d2a1b903b2bdb60fc73b24ffa10f3dbaf096a8a821cf4f6aa87716f70631e64c7ee45f75db0ff0e2119110dc03d2eb85bf0a14c9477873313ddc3cd5353dd187b3234905cf1f084ae061035579338d237d695da4960b22d44eb86eb67369a0e4cd087f62f93d066375146fb04c957f38bd713c3447ff291e2a6de58b36d25f45a3ce28bdd6c64e5a04a4fadb38cd75eb2ab8029b839092b31d9d95d64fef1101021d886a6d94149b129d67ea6fe6e449be"
 app.json.compact = False
 
+db.init_app(app)
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
-db.init_app(app)
-CORS(app)
-# CORS(app, resources={r"/register": {"origins": "http://localhost:3000"}})
-
+# CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
 
 
 @app.route("/register", methods=["POST"])
@@ -68,17 +66,23 @@ def login():
         }), 200
 
 
+@app.route('/protected', methods=['GET', 'OPTIONS'])
+def handle_preflight():
+    if request.method == 'OPTIONS':
+        return '', 204
+    return jsonify({"message": "This is a protected route"}), 200
+
+
 @app.route('/', methods=['GET'])
 @jwt_required()
-def protected():
+def home():
     current_user_id = get_jwt_identity()
     user = User.query.get(current_user_id)
+
+    if not user:
+        return jsonify({'message': 'User not found'}), 404
+
     return jsonify({'message': f'Hello {user.username}, this is a protected route!'}), 200
-
-
-# @app.route("/")
-# def index():
-#     return "<h1>Welcome to TasteNShop!</h1>"
 
 
 @app.route('/api/users', methods=['GET'])
@@ -211,9 +215,6 @@ def delete_product(product_id):
     db.session.delete(product)
     db.session.commit()
     return jsonify({'message': 'Product deleted'}), 200
-
-
-
 
 
 

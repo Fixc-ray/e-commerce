@@ -10,7 +10,7 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const fetchProtectedData = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:5500/protected', {
+        const res = await axios.get('http://127.0.0.1:5000/protected', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMessage(res.data.message);
