@@ -402,9 +402,10 @@ body {
       }
 
       .navbar-logo .logo {
-        width: 40px;
-        height: 40px;
-        margin-left: -15px;
+        width: 37px;
+        height: 37px;
+        margin-left: -20px;
+        margin-right: 13px;
         /* padding-right: 2px; */
       }
       
@@ -423,7 +424,7 @@ body {
       .main-menu-item a {
         padding: 10px 0;
         font-size: 0.9rem;
-        margin: 5px 0;
+        margin: 1px 0;
         transition: color 0.2s ease;
       }
 
