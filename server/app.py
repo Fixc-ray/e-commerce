@@ -118,22 +118,22 @@ def create_user():
 @jwt_required()
 def add_to_cart():
     data = request.get_json()
+    user_id = get_jwt_identity()
+    product_id, quantity = data.get("product_id"), data.get("quantity")
     
-    if not data or 'user_id' not in data or 'product_id' not in data or 'quantity' not in data:
+    if not product_id or not quantity:
         return jsonify({'error': 'Missing required fields'}), 400
     
-    user_id = get_jwt_identity()
-    # user = User.query.get_or_404(data['user_id'])
-    product = Product.query.get_or_404(data['product_id'])
-    
+    product = Product.query.get_or_404(product_id)
     cart_item = Cart.query.filter_by(user_id=user_id, product_id=product.product_id).first()
-    if cart_item:
-        cart_item.quantity += data['quantity']
-    else:
-        cart_item = Cart(user_id=user_id, product_id=product.product_id, quantity=data['quantity'])
-        db.session.add(cart_item)
-        db.session.commit()
     
+    if cart_item:
+        cart_item.quantity += quantity
+    else:
+        cart_item = Cart(user_id=user_id, product_id=product.product_id, quantity=quantity)
+        db.session.add(cart_item)
+
+    db.session.commit()
     return jsonify({'message': 'Item added to cart'}), 201
 
 
@@ -177,6 +177,7 @@ def create_product():
 
     return jsonify(new_product.to_dict()), 201
 
+
 @app.route('/api/user/products', methods=['GET'])
 @jwt_required()
 def get_user_products():
@@ -190,6 +191,7 @@ def get_user_products():
 def get_product(product_id):
     product = Product.query.get_or_404(product_id)
     return jsonify(product.to_dict())
+
 
 @app.route('/api/products/<int:product_id>', methods=['PUT'])
 @jwt_required()
