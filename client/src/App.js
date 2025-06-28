@@ -48,41 +48,43 @@ function App() {
   return (
       <Router>
         <div className="App">
-          <Navbar cartCount={cartItems.length} /> {/* Pass cart count to Navbar */}
-          <Routes>
-            <Route path="/" element={<Navigate to={token ? "/home" : "/login"} />} />
-            <Route path="/home" element={
-                <ProtectedRoute>
-                  <Home onAddToCart={onAddToCart} />
-                </ProtectedRoute>
-              } />
-              <Route path="/cart" element={
+          <Navbar cartCount={cartItems.length} />
+          <div className="main-content">
+            <Routes>
+              <Route path="/" element={<Navigate to={token ? "/home" : "/login"} />} />
+              <Route path="/home" element={
                   <ProtectedRoute>
-                    <Cart
-                      cartItems={cartItems}
-                      removeFromCart={removeItem}
-                      updateCartQuantity={updateCartQuantity}
-              />
-            </ProtectedRoute>
-          } />
-          <Route path="/details" element={
-              <ProtectedRoute>
-                <Details onAddToCart={onAddToCart} />
+                    <Home onAddToCart={onAddToCart} />
+                  </ProtectedRoute>
+                } />
+                <Route path="/cart" element={
+                    <ProtectedRoute>
+                      <Cart
+                        cartItems={cartItems}
+                        removeFromCart={removeItem}
+                        updateCartQuantity={updateCartQuantity}
+                />
               </ProtectedRoute>
-          } />
+            } />
+            <Route path="/details" element={
+                <ProtectedRoute>
+                  <Details onAddToCart={onAddToCart} />
+                </ProtectedRoute>
+            } />
 
-          <Route path="/profile" element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+          </div>
+          <Footer />
+        </div>
+      </Router>
   );
 }
 

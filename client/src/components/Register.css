@@ -9,13 +9,28 @@ body {
     align-items: center;
   }
   
+.epic-register-container {
+  padding-top: 100px; /* 70px header + 30px gap */
+  padding-bottom: 30px; /* gap above footer */
+  min-height: calc(100vh - 70px - 60px); /* 70px header, 60px footer */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.epic-register-form-section {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .signup-container {
   display: flex;
   border-radius: 10px;
   background-color: #fff;
-  margin-top: 300px;
-  margin-bottom: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
 }
 
 .side {
@@ -90,7 +105,6 @@ input {
 
 input:focus {
   outline: none;
-  /* outline: 2px solid #007bff; */
   border-color: #007bff;
 }
 
@@ -133,8 +147,12 @@ button:disabled {
 
 
 @media (max-width: 768px) {
+  .epic-register-container {
+    padding-top: 85px; /* Reduced for medium screens */
+    padding-bottom: 25px;
+  }
+
   .signup-container {
-    margin-top: 400px;
     border-radius: 10px;
   }
 
@@ -151,16 +169,20 @@ button:disabled {
   .side h3,
   .side p {
     font-size: 1.5rem;
-}
+  }
 
   button {
     font-size: 0.9rem;
-}
+  }
 }
 
 @media (max-width: 320px) {
+  .epic-register-container {
+    padding-top: 70px; /* Further reduced for small screens */
+    padding-bottom: 20px;
+  }
+
   .signup-container {
-    margin-top: 820px;
     flex-direction: column;
     width: 100%;
   }

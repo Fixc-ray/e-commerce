@@ -29,50 +29,68 @@ function Register() {
       alert(res.data.message);
       navigate("/login");
     } catch (error) {
-      alert(error.response?.data?.message || "Registration failed");
       console.error("Registration Error", error);
+      setError(error.response?.data?.message || "Registration failed. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="signup-container">
-      <div className="side">
-        <h1>Hello, There!</h1>
-        <h3>Already Have An Account?</h3>
-        <p>Sign in instead of creating another account</p>
-        <button onClick={goToLogin}>Sign In</button>
+    <div className="epic-register-container">
+      <div className="epic-register-side">
+        <div className="epic-side-content">
+          <h1 className="epic-side-title">Join TasteNShop!</h1>
+          <h3 className="epic-side-subtitle">Already Have An Account?</h3>
+          <p className="epic-side-text">Sign in to access your account and continue shopping</p>
+          <button onClick={goToLogin} className="epic-signin-btn">Sign In</button>
+        </div>
       </div>
 
-      <form onSubmit={handleRegister}>
-        <h2>Register</h2>
-        {error && <p className="error-message">{error}</p>}
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
-        {loading ? "Registering..." : "Register"}
-        </button>
-      </form>
+      <div className="epic-register-form-section">
+        <form onSubmit={handleRegister} className="epic-register-form">
+          <h2 className="epic-register-title">Create Account</h2>
+          
+          {error && <p className="epic-error-message">{error}</p>}
+          
+          <div className="epic-input-group">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="epic-input"
+            />
+          </div>
+          
+          <div className="epic-input-group">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="epic-input"
+            />
+          </div>
+          
+          <div className="epic-input-group">
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="epic-input"
+            />
+          </div>
+          
+          <button type="submit" disabled={loading} className="epic-register-btn">
+            {loading ? "Creating Account..." : "Create Account"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

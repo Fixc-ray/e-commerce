@@ -1,12 +1,12 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Arial", sans-serif;
-    background-color: #f0f0f5;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   }
   
 form {
@@ -21,13 +21,24 @@ h2 {
   color: #333;
 }
 
+/* Main login container - prevent header overlap */
+.epic-login-container {
+  padding-top: 100px; /* 70px header + 30px gap */
+  padding-bottom: 30px; /* gap above footer */
+  min-height: calc(100vh - 70px - 60px); /* 70px header, 60px footer */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .login-container {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  margin-top: 300px;
-  margin-bottom: 100px;
+  width: 100%;
+  max-width: 800px;
 }
 .login-container .side {
   margin-left: 40px;
@@ -114,39 +125,49 @@ button:disabled {
   body {
     padding: 0;
     font-size: 14px;
-}
+  }
 
-.login-container {
+  /* Responsive padding for smaller screens */
+  .epic-login-container {
+    padding-top: 80px; /* Reduced for smaller screens */
+    padding-bottom: 20px;
+  }
+
+  .login-container {
     flex-direction: column;
     margin: 20px;
-    margin-top: 800px;
-}
+  }
 
-.login-container .side {
+  .login-container .side {
     margin-left: 0;
     border-radius: 10px;
     padding: 15px;
-}
+  }
 
-h2 {
+  h2 {
     font-size: 1.5rem;
-}
+  }
 
-input {
+  input {
     padding: 10px;
-}
+  }
 
-button {
+  button {
     padding: 10px;
     font-size: 0.9rem;
-}
+  }
 
-.login-container .side h1 {
+  .login-container .side h1 {
     font-size: 1.5rem;
+  }
+
+  .login-container .side h3,
+  .login-container .side p {
+    font-size: 0.85rem;
+  }
 }
 
-.login-container .side h3,
-.login-container .side p {
-    font-size: 0.85rem;
-}
+.epic-login-form-section {
+  margin-top: 0;
+  margin-bottom: 0;
 }

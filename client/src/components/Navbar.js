@@ -1,10 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({ cartCount = 0 }) {
   const [isToggled, setIsToggled] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
+    // Check if user is logged in and get username
+    const token = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+    
+    if (token && userData) {
+      try {
+        const user = JSON.parse(userData);
+        setIsLoggedIn(true);
+        setUsername(user.username);
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        setIsLoggedIn(false);
+        setUsername('');
+      }
+    } else {
+      setIsLoggedIn(false);
+      setUsername('');
+    }
+
     if (isToggled) {
       document.body.classList.add('dark-mode');
     } else {
@@ -16,71 +38,162 @@ function Navbar() {
     setIsToggled(!isToggled);
   };
 
-  const navigate = useNavigate();
-  const profile = () => {
-    navigate('/profile');
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // const handleLogout = () => { 
-  //   onLogout();
-  //   navigate("/login"); 
-  // };
+  const navigate = useNavigate();
+  
+  const handleProfileClick = () => {
+    if (isLoggedIn) {
+      navigate('/profile');
+    } else {
+      navigate('/login');
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setIsLoggedIn(false);
+    setUsername('');
+    navigate('/login');
+  };
 
   return (
-    <div className={`navbar ${isToggled ? 'dark-navbar' : ''}`}>
-
-      <div className="navbar-container">
-
-        <div className="navbar-logo">       
-            <img className = "logo" src="TasteNshop.jpg" alt="The TasteNshop logo" />
+    <nav className={`epic-navbar ${isToggled ? 'dark-mode' : ''}`}>
+      <div className="epic-navbar-container">
+        
+        {/* Logo Section - Left */}
+        <div className="epic-logo-section">
+          <Link to="/home" className="epic-logo">
+            <img 
+              className="epic-logo-img" 
+              src="TasteNshop.jpg" 
+              alt="TasteNShop Logo" 
+            />
+            <span className="epic-logo-text">TasteNShop</span>
+          </Link>
         </div>
 
-          <div className="main-menu-container">
-            <ul className="menu-list">
+        {/* Navigation Menu - Center */}
+        <div className="epic-nav-menu">
+          <ul className="epic-nav-list">
+            <li className="epic-nav-item">
+              <Link to="/home" className="epic-nav-link">Home</Link>
+            </li>
+            <li className="epic-nav-item">
+              <Link to="/products" className="epic-nav-link">Products</Link>
+            </li>
+            <li className="epic-nav-item">
+              <Link to="/categories" className="epic-nav-link">Categories</Link>
+            </li>
+            <li className="epic-nav-item">
+              <Link to="/deals" className="epic-nav-link">Deals</Link>
+            </li>
+            <li className="epic-nav-item">
+              <Link to="/support" className="epic-nav-link">Support</Link>
+            </li>
+          </ul>
+        </div>
 
-              <li className="main-menu-item">
-                <Link to="/home">Home</Link>
-              </li>
-              <li className="main-menu-item">
-                <Link to="/Products">Products</Link>
-              </li>
-              <li className="main-menu-item">
-                <Link to="/Footer">Services</Link>
-              </li>
-              <li className="main-menu-item">
-              <Link to="/cart">Cart</Link>
-              </li>
-              <li className="main-menu-item">
-              <Link to="/wishlist">Wishlist</Link>
-              </li>
-            
-            </ul>
-          </div>
+        {/* User Actions - Right */}
+        <div className="epic-user-actions">
+          
+          {/* Cart - Only show when logged in */}
+          {isLoggedIn && (
+            <Link to="/cart" className="epic-cart-btn">
+              <span className="epic-cart-icon">🛒</span>
+              <span className="epic-cart-text">Cart</span>
+              {cartCount > 0 && (
+                <span className="epic-cart-count">{cartCount}</span>
+              )}
+            </Link>
+          )}
 
-          <div className = "profile-container">
-                <img onClick={profile} className= "profile-picture" src="anotherprofile.png" alt="Profile" />
-                     <div  className = "profile-text-container">
-                        {/* <span class = "profile-text">Profile</span> */}
-                        {/* <i class="fa-solid fa-down-long"></i> */}
-                    </div> 
+          {/* Wishlist - Only show when logged in */}
+          {isLoggedIn && (
+            <Link to="/wishlist" className="epic-wishlist-btn">
+              <span className="epic-wishlist-icon">❤️</span>
+              <span className="epic-wishlist-text">Wishlist</span>
+            </Link>
+          )}
 
-                <div className = "toggle" onClick={handleToggle} aria-label="Toggle dark mode">
-                <div className={`toggle-ball ${isToggled ? 'active' : ''}`}></div>
-                <i className={`fa-solid ${isToggled ? 'fa-sun' : 'fa-moon'} toggle-icon`}></i>
-                    {/* <div class= "toggle-ball-light"></div> */}
-                </div>
+          {/* Profile/Sign In Button */}
+          <button onClick={handleProfileClick} className="epic-profile-btn">
+            <span className="epic-profile-icon">👤</span>
+            <span className="epic-profile-text">
+              {isLoggedIn ? username : 'Sign In'}
+            </span>
+          </button>
+
+          {/* Theme Toggle */}
+          <button 
+            onClick={handleToggle} 
+            className="epic-toggle-btn"
+            aria-label="Toggle dark mode"
+          >
+            <div className={`epic-toggle ${isToggled ? 'active' : ''}`}>
+              <div className="epic-toggle-ball"></div>
+              <span className="epic-toggle-icon">
+                {isToggled ? '☀️' : '🌙'}
+              </span>
             </div>
+          </button>
 
-          <div className="wishlist">
-            <button className="wishlist-button">
-              <Link to="/cart">Wishlist</Link>
+          {/* Logout - Only show when logged in */}
+          {isLoggedIn && (
+            <button onClick={handleLogout} className="epic-logout-btn">
+              Logout
             </button>
-          </div>
+          )}
+        </div>
 
+        {/* Mobile Menu Toggle - Only show when needed */}
+        <button 
+          className={`epic-mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+        >
+          <span className="epic-mobile-menu-icon">
+            {isMobileMenuOpen ? '✕' : '☰'}
+          </span>
+        </button>
       </div>
 
-    </div>
-  )
+      {/* Mobile Menu Dropdown */}
+      <div className={`epic-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="epic-mobile-menu-container">
+          <ul className="epic-mobile-nav-list">
+            <li className="epic-mobile-nav-item">
+              <Link to="/home" className="epic-mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+                Home
+              </Link>
+            </li>
+            <li className="epic-mobile-nav-item">
+              <Link to="/products" className="epic-mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+                Products
+              </Link>
+            </li>
+            <li className="epic-mobile-nav-item">
+              <Link to="/categories" className="epic-mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+                Categories
+              </Link>
+            </li>
+            <li className="epic-mobile-nav-item">
+              <Link to="/deals" className="epic-mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+                Deals
+              </Link>
+            </li>
+            <li className="epic-mobile-nav-item">
+              <Link to="/support" className="epic-mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+                Support
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
 export default Navbar;
