@@ -7,7 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: rgb(221, 212, 212);
-  padding: 70px 10px 0;
+  padding: 0;
   min-height: 100vh;
   display: flex;
   overflow-x: hidden;
@@ -25,28 +25,29 @@ body {
 
 .main-content {
   flex: 1;
-  padding: 100px 20px 30px 20px; /* 70px header + 30px gap at top, 30px at bottom */
+  padding: 100px 20px 100px 20px; /* 70px header + 30px gap at top, 80px footer + 20px gap at bottom */
   margin: 0 auto;
   max-width: 1400px;
   width: 100%;
   box-sizing: border-box;
+  min-height: calc(100vh - 70px - 80px); /* Ensure content fills available space */
 }
 
 @media (max-width: 1024px) {
   .main-content {
-    padding: 85px 15px 20px 15px;
+    padding: 90px 15px 90px 15px;
   }
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding: 75px 10px 15px 10px;
+    padding: 80px 10px 80px 10px;
   }
 }
 
 @media (max-width: 480px) {
   .main-content {
-    padding: 65px 5px 10px 5px;
+    padding: 70px 5px 70px 5px;
   }
 }
 
@@ -54,17 +55,17 @@ body {
 .cart-container,
 .profile-container {
   padding: 20px 0;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 70px - 80px);
 }
 
 .Front {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 70px - 80px);
   padding: 40px 0;
 }
 
 .loading,
 .error-message {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 70px - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,9 +78,11 @@ body {
   .cart-container,
   .profile-container {
     padding: 15px 0;
+    min-height: calc(100vh - 70px - 80px);
   }
   .Front {
     padding: 30px 0;
+    min-height: calc(100vh - 70px - 80px);
   }
 }
 
@@ -88,14 +91,17 @@ body {
   .cart-container,
   .profile-container {
     padding: 10px 0;
+    min-height: calc(100vh - 70px - 80px);
   }
   .Front {
     padding: 25px 0;
+    min-height: calc(100vh - 70px - 80px);
   }
   .loading,
   .error-message {
     padding: 30px 15px;
     font-size: 16px;
+    min-height: calc(100vh - 70px - 80px);
   }
 }
 
@@ -104,14 +110,17 @@ body {
   .cart-container,
   .profile-container {
     padding: 10px 0;
+    min-height: calc(100vh - 70px - 80px);
   }
   .Front {
     padding: 20px 0;
+    min-height: calc(100vh - 70px - 80px);
   }
   .loading,
   .error-message {
     padding: 25px 10px;
     font-size: 14px;
+    min-height: calc(100vh - 70px - 80px);
   }
 }
 
@@ -1468,303 +1477,5 @@ body {
   
   .epic-footer-bottom {
     padding: 12px 0;
-  }
-}
-
-
-.epic-login-container,
-.epic-register-container {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  margin-top: 70px;
-  position: relative;
-}
-
-.epic-login-container:not(.dark-mode),
-.epic-register-container:not(.dark-mode) {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-}
-
-.epic-login-form-section,
-.epic-register-form-section {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-}
-
-.epic-login-form,
-.epic-register-form {
-  width: 100%;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.epic-login-container:not(.dark-mode) .epic-login-form,
-.epic-register-container:not(.dark-mode) .epic-register-form {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.epic-login-title,
-.epic-register-title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 28px;
-  font-weight: bold;
-  background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.epic-error-message {
-  color: #ff6b6b;
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  background: rgba(255, 107, 107, 0.1);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 107, 107, 0.3);
-}
-
-.epic-input-group {
-  margin-bottom: 20px;
-}
-
-.epic-input {
-  width: 100%;
-  padding: 15px 20px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-.epic-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.epic-input:focus {
-  outline: none;
-  border-color: #00d4ff;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-}
-
-.epic-login-container:not(.dark-mode) .epic-input,
-.epic-register-container:not(.dark-mode) .epic-input {
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.9);
-  color: #333333;
-}
-
-.epic-login-container:not(.dark-mode) .epic-input::placeholder,
-.epic-register-container:not(.dark-mode) .epic-input::placeholder {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.epic-login-container:not(.dark-mode) .epic-input:focus,
-.epic-register-container:not(.dark-mode) .epic-input:focus {
-  border-color: #00d4ff;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-}
-
-.epic-login-btn,
-.epic-register-btn {
-  width: 100%;
-  padding: 15px 20px;
-  background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
-}
-
-.epic-login-btn:hover,
-.epic-register-btn:hover {
-  background: linear-gradient(45deg, #00b8e6, #ff5252);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
-}
-
-.epic-login-btn:disabled,
-.epic-register-btn:disabled {
-  background: linear-gradient(45deg, #666666, #888888);
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.epic-login-side,
-.epic-register-side {
-  flex: 1;
-  background: linear-gradient(135deg, #512da8 0%, #673ab7 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-.epic-login-side::before,
-.epic-register-side::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  opacity: 0.3;
-}
-
-.epic-side-content {
-  text-align: center;
-  color: white;
-  position: relative;
-  z-index: 1;
-}
-
-.epic-side-title {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.epic-side-subtitle {
-  font-size: 24px;
-  font-weight: 300;
-  margin-bottom: 15px;
-  opacity: 0.9;
-}
-
-.epic-side-text {
-  font-size: 16px;
-  margin-bottom: 30px;
-  opacity: 0.8;
-  line-height: 1.6;
-}
-
-.epic-signup-btn,
-.epic-signin-btn {
-  padding: 15px 30px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.epic-signup-btn:hover,
-.epic-signin-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-  .epic-login-container,
-  .epic-register-container {
-    flex-direction: column;
-    margin-top: 70px;
-  }
-  
-  .epic-login-side,
-  .epic-register-side {
-    order: 1;
-    padding: 30px 20px;
-  }
-  
-  .epic-login-form-section,
-  .epic-register-form-section {
-    order: 2;
-    padding: 30px 20px;
-  }
-  
-  .epic-login-form,
-  .epic-register-form {
-    padding: 30px;
-  }
-  
-  .epic-side-title {
-    font-size: 28px;
-  }
-  
-  .epic-side-subtitle {
-    font-size: 20px;
-  }
-  
-  .epic-side-text {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .epic-login-container,
-  .epic-register-container {
-    margin-top: 70px;
-  }
-  
-  .epic-login-form,
-  .epic-register-form {
-    padding: 20px;
-  }
-  
-  .epic-login-title,
-  .epic-register-title {
-    font-size: 24px;
-  }
-  
-  .epic-input {
-    padding: 12px 15px;
-    font-size: 14px;
-  }
-  
-  .epic-login-btn,
-  .epic-register-btn {
-    padding: 12px 15px;
-    font-size: 14px;
-  }
-  
-  .epic-side-title {
-    font-size: 24px;
-  }
-  
-  .epic-side-subtitle {
-    font-size: 18px;
-  }
-  
-  .epic-side-text {
-    font-size: 13px;
-  }
-  
-  .epic-signup-btn,
-  .epic-signin-btn {
-    padding: 12px 25px;
-    font-size: 14px;
   }
 }
