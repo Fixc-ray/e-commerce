@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 function Navbar({ cartCount = 0 }) {
   const [isToggled, setIsToggled] = useState(false);
@@ -43,6 +43,7 @@ function Navbar({ cartCount = 0 }) {
   };
 
   const navigate = useNavigate();
+  const location = useLocation();
   
   const handleProfileClick = () => {
     if (isLoggedIn) {
@@ -119,13 +120,15 @@ function Navbar({ cartCount = 0 }) {
             </Link>
           )}
 
-          {/* Profile/Sign In Button */}
-          <button onClick={handleProfileClick} className="epic-profile-btn">
-            <span className="epic-profile-icon">👤</span>
-            <span className="epic-profile-text">
-              {isLoggedIn ? username : 'Sign In'}
-            </span>
-          </button>
+          {/* Profile/Sign In Button - Hide on /login and /register */}
+          {!(location.pathname === '/login' || location.pathname === '/register') && (
+            <button onClick={handleProfileClick} className="epic-profile-btn">
+              <span className="epic-profile-icon">👤</span>
+              <span className="epic-profile-text">
+                {isLoggedIn ? username : 'Sign In'}
+              </span>
+            </button>
+          )}
 
           {/* Theme Toggle */}
           <button 

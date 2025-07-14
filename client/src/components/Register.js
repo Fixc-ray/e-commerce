@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
 
@@ -10,7 +10,6 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const goToLogin = () => {
     navigate("/login");
@@ -44,6 +43,8 @@ function Register() {
           <h1 className="epic-side-title">Join TasteNShop!</h1>
           <h3 className="epic-side-subtitle">Already Have An Account?</h3>
           <p className="epic-side-text">Sign in to access your account and continue shopping</p>
+          {/* Add Sign In button to switch to login page */}
+          <button onClick={goToLogin} className="epic-signin-btn">Sign In</button>
         </div>
       </div>
 
