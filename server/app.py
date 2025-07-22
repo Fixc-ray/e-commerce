@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from models import db, Product, User, Cart
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended.exceptions import  NoAuthorizationError
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -16,8 +17,15 @@ db.init_app(app)
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
 # CORS(app)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000", "allow_headers": ["Content-Type", "Authorization"], "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}, allow_headers=["Content-Type", "Authorization"], methods=["GET", "PUT", "POST", "DELETE", "OPTIONS"])
 
+@app.errorhandler(NoAuthorizationError)
+def handle_no_auth_error(e):
+    return jsonify({"msg": "Missing or invalid JWT"}), 401
+
+@app.errorhandler(422)
+def handle_unprocessable_entity(e):
+    return jsonify({"msg": "Unprocessable Entity", "error": str(e)}), 422
 
 @app.route("/register", methods=["POST"])
 def register():
@@ -56,7 +64,7 @@ def login():
     if not user or not check_password_hash(user.password, password):
         return jsonify({'message': 'Invalid credentials'}), 401
 
-    access_token = create_access_token(identity=user.user_id)
+    access_token = create_access_token(identity=str(user.user_id))
     return jsonify({
         'access_token': access_token,
         'user': {
@@ -67,10 +75,19 @@ def login():
 
 
 @app.route('/protected', methods=['GET', 'OPTIONS'])
-def handle_preflight():
+def protected():
+    print(request.headers)
     if request.method == 'OPTIONS':
-        return '', 204
-    return jsonify({"message": "This is a protected route"}), 200
+        return "", 204
+    return get_protected()
+    
+@jwt_required()
+def get_protected():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    if not user:
+        return jsonify({'message': 'User not found'}), 404
+    return jsonify({'message': f'Hello {user.username}, this is a protected route!'}), 200
 
 
 @app.route('/', methods=['GET'])

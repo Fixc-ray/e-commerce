@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,6 +10,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
+import Products from './components/Products';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -46,7 +47,12 @@ function App() {
   const token = localStorage.getItem('token');
 
   return (
-    <Router>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <div className="App">
         <Navbar cartCount={cartItems.length} />
         <div className="main-content">
@@ -72,6 +78,12 @@ function App() {
               </ProtectedRoute>
             } />
 
+            <Route path="/products" element={
+              <ProtectedRoute>
+                <Products onAddToCart={onAddToCart} />
+              </ProtectedRoute>
+            } />
+
             <Route path="/profile" element={
               <ProtectedRoute>
                 <Profile />
@@ -84,7 +96,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

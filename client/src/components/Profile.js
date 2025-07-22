@@ -26,7 +26,7 @@ const Profile = () => {
     }
 
       axios
-      .get('/api/user/products', {
+      .get('http://127.0.0.1:5000/api/user/products', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(response => {
