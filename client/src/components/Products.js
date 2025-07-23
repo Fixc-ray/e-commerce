@@ -59,23 +59,28 @@ function Home({ onAddToCart, onRemoveItem }) {
       </div>
     );
   }
-
-  // Otherwise, show the product list
+  
   return (
     <div className="container mx-auto p-6">
       <Search items={products} onAddToCart={onAddToCart} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-12">
         {products.map((product) => (
           <div
             key={product.product_id}
-            className="cursor-pointer"
+            className="award-product-card cursor-pointer transition-transform transform hover:scale-105 hover:shadow-2xl"
             onClick={() => setSelectedProduct(product)}
           >
-            {/* You can show a summary here, or reuse Details with less info */}
-            <div className="p-4 border rounded shadow hover:bg-gray-100">
-              <h3 className="font-bold">{product.name}</h3>
-              <p>${product.price}</p>
-              {/* Optionally show image, etc. */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center p-6 border border-gray-200 hover:border-blue-400 transition-all duration-300">
+              <img src={product.photoUrl} alt={product.name} className="product-image w-48 h-48 object-cover rounded-xl mb-4 border-4 border-blue-100 shadow-md hover:border-blue-400 transition-all duration-300" />
+              <h3 className="font-extrabold text-xl text-gray-800 mb-2 text-center tracking-tight award-product-title">{product.name}</h3>
+              <p className="text-lg font-semibold text-blue-600 mb-2">${product.price}</p>
+              <p className="text-gray-500 text-sm mb-4 text-center award-product-desc">{product.description}</p>
+              <button
+                className="award-add-to-cart-btn bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-full font-bold shadow hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+                onClick={e => { e.stopPropagation(); onAddToCart(product); }}
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         ))}

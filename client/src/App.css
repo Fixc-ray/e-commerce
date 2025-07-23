@@ -1479,3 +1479,97 @@ body {
     padding: 12px 0;
   }
 }
+
+.award-product-card {
+  background: #ff7043;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 32px 0 rgba(30, 64, 175, 0.10), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  border: none;
+  margin: 0 0.75rem 2.5rem 0.75rem;
+  will-change: transform, box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+}
+.award-product-card:hover {
+  box-shadow: 0 16px 48px 0 rgba(30, 64, 175, 0.22), 0 8px 32px 0 rgba(142, 36, 170, 0.13);
+  transform: translateY(-14px) scale(1.055);
+  background: linear-gradient(135deg, #e3e6f3 0%, #f8fafc 100%);
+  z-index: 2;
+}
+.award-product-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  color: #22223b;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.award-product-desc {
+  color: #5c6bc0;
+  font-size: 1.08rem;
+  font-family: 'Open Sans', Arial, sans-serif;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  min-height: 48px;
+}
+.award-add-to-cart-btn {
+  background: linear-gradient(90deg, #1e88e5 0%, #8e24aa 100%);
+  box-shadow: 0 2px 12px rgba(30, 136, 229, 0.18);
+  border: none;
+  outline: none;
+  font-size: 1.12rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 800;
+  padding: 0.85rem 2.7rem;
+  border-radius: 2.2rem;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  cursor: pointer;
+  margin-top: 0.7rem;
+}
+.award-add-to-cart-btn:hover {
+  background: linear-gradient(90deg, #1565c0 0%, #6a1b9a 100%);
+  box-shadow: 0 12px 32px rgba(30, 136, 229, 0.28);
+  transform: scale(1.06);
+}
+.product-image {
+  width: 13rem;
+  height: 13rem;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  background: #f5f7fa;
+  box-shadow: 0 6px 28px rgba(30, 136, 229, 0.15);
+  margin-bottom: 1.5rem;
+  border: 4px solid #e3e6f3;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.award-product-card:hover .product-image {
+  border: 4px solid #8e24aa;
+  box-shadow: 0 12px 40px rgba(142, 36, 170, 0.22);
+}
+@media (max-width: 1024px) {
+  .award-product-card {
+    min-width: 260px;
+    padding: 2rem 1rem 1.5rem 1rem;
+    margin: 0 0.5rem 2rem 0.5rem;
+  }
+  .product-image {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+@media (max-width: 768px) {
+  .award-product-card {
+    min-width: 200px;
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    margin: 0 0.25rem 1.5rem 0.25rem;
+  }
+  .product-image {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}

@@ -49,7 +49,7 @@ class Product(db.Model):
             'price': self.price,
             'description': self.description,
             'category': self.category,
-            'photo_url': self.photo_url,
+            'photoUrl': self.photo_url,  # Use camelCase for frontend
             'user_id': self.user_id
         }
         

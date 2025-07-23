@@ -156,6 +156,7 @@ function Navbar({ cartCount = 0 }) {
         <button 
           className={`epic-mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
           onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
         >
           <span className="epic-mobile-menu-icon">
             {isMobileMenuOpen ? '✕' : '☰'}
